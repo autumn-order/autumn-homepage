@@ -25,7 +25,7 @@ pub fn Endgame() -> Element {
         section { class: "flex items-center justify-center",
             div { class: "max-w-[1440px] p-6 w-full h-full flex flex-col items-center",
                 div { class: "flex flex-col gap-2 py-6",
-                    h1 { class: "text-center text-gradient font-bold text-2xl xl:text-4xl pb-4",
+                    h1 { class: "text-center font-bold text-2xl xl:text-4xl pb-4",
                         "What Does Your End Game Look Like?"
                     }
                     ul { class: "flex justify-evenly flex-wrap w-full",
