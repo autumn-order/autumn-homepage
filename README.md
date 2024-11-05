@@ -1,10 +1,11 @@
+# Join Autumn
 
-1. Install npm: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
-2. Install the tailwind css cli: https://tailwindcss.com/docs/installation
+1. Install bun: <https://bun.sh/>
+2. Install daisyUI from NodeJS dependencies with `bun i`
 3. Run the following command in the root of the project to start the tailwind CSS compiler:
 
 ```bash
-npx tailwindcss -i ./input.css -o ./assets/tailwind.css --watch
+bunx tailwindcss -i ./input.css -o ./assets/tailwind.css --watch
 ```
 
 Launch the Dioxus Fullstack app:
