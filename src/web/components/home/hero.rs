@@ -18,6 +18,7 @@ pub fn Hero() -> Element {
                     div { class: "flex flex-col text-center md:text-left items-center md:items-start gap-2",
                         img {
                             class: "w-48 h-48 md:w-64 md:h-64",
+                            alt: "Autumn Logo",
                             src: AUTUMN_LOGO
                         }
                         h1 { class: "text-white font-bold sm:text-2xl lg:text-3xl xl:text-4xl",

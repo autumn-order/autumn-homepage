@@ -12,14 +12,18 @@ pub fn Header() -> Element {
         .size(64, 64));
 
     rsx! {
-        header { class: "fixed w-full flex justify-center bg-base-100",
+        header { class: "fixed w-full flex justify-center bg-base-100 z-20",
             div { class: "max-w-[1440px] w-full flex items-center justify-between px-6 py-3",
                 ul {
                     li {
                         a {
                             class: "flex gap-2 items-center font-bold text-3xl",
                             href: "/",
-                            img { class: "w-16 h-16", src: AUTUMN_LOGO }
+                            img {
+                                class: "w-16 h-16",
+                                alt: "Autumn Logo",
+                                src: AUTUMN_LOGO
+                            }
                             "Autumn"
                         }
                     }
