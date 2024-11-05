@@ -7,25 +7,28 @@ use crate::constants::{APPLICATIONS_URL, DISCORD_URL};
 
 #[component]
 pub fn Header() -> Element {
-    const AUTUMN_LOGO: ImageAsset = manganis::mg!(image("assets/autumn-logo.png")
+    const AUTUMN_LOGO: ImageAsset = manganis::mg!(image("assets/autumn-logo-dark.png")
         .format(ImageType::Avif)
         .size(64, 64));
 
     rsx! {
-        header { class: "flex justify-center bg-base-100",
-            div { class: "navbar max-w-[1440px] w-full flex justify-between",
+        header { class: "fixed w-full flex justify-center bg-base-100",
+            div { class: "max-w-[1440px] w-full flex items-center justify-between px-6 py-3",
                 ul {
                     li {
-                        a { class: "btn btn-lg btn-ghost text-3xl", href: "/",
+                        a {
+                            class: "flex gap-2 items-center font-bold text-3xl",
+                            href: "/",
                             img { class: "w-16 h-16", src: AUTUMN_LOGO }
                             "Autumn"
                         }
                     }
                 }
-                ul { class: "flex gap-2",
+                ul { class: "hidden md:flex gap-2",
                     li {
-                        a { class: "btn btn-square", href: DISCORD_URL,
-                            Icon { width: 32, height: 32, fill: "black", icon: FaDiscord }
+                        a { class: "btn", href: DISCORD_URL,
+                            Icon { width: 24, height: 24, fill: "black", icon: FaDiscord }
+                            "Autumn Discord"
                         }
                     }
                     li {
