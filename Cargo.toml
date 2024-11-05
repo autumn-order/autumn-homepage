@@ -11,7 +11,7 @@ serde = { version = "1.0.197", features = ["derive"] }
 
 dioxus = { version = "0.5.6", features = ["fullstack", "router"] }
 dioxus-helmet = { git = "https://github.com/dioxus-community/dioxus-helmet.git" }
-dioxus-free-icons = { version = "0.8.6", features = ["font-awesome-brands"] }
+dioxus-free-icons = { version = "0.8.6", features = ["font-awesome-brands", "font-awesome-solid"] }
 
 # Debug
 dioxus-logger = "0.5.1"
