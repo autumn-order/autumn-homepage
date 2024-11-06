@@ -7,10 +7,7 @@ use dioxus_free_icons::{
     Icon,
 };
 
-use crate::web::{
-    constants::{APPLICATIONS_URL, CORPORATIONS, DISCORD_URL},
-    model::corporation::CorpCardData,
-};
+use crate::web::constants::{CorpCardData, APPLICATIONS_URL, CORPORATIONS, DISCORD_URL};
 
 #[component]
 pub fn CallToAction() -> Element {
