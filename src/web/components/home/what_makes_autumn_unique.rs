@@ -18,9 +18,7 @@ pub fn WhatMakesAutumnUnique() -> Element {
                             div { class: "card card-compact shadow md:h-48 lg:h-32",
                                 div { class: "card-body",
                                     h2 { class: "card-title",
-                                        div { class: "w-6 h-6",
-                                            Icon { icon: FaAtom, width: 24, height: 24 }
-                                        }
+                                        Icon { icon: FaAtom, width: 24, height: 24 }
                                         span { "IT Infrastructure From the Ground Up" }
                                     }
                                     p {
@@ -33,9 +31,7 @@ pub fn WhatMakesAutumnUnique() -> Element {
                             div { class: "card card-compact shadow md:h-48 lg:h-32",
                                 div { class: "card-body",
                                     h2 { class: "card-title",
-                                        div { class: "w-6 h-6",
-                                            Icon { icon: FaChartLine, width: 24, height: 24 }
-                                        }
+                                        Icon { icon: FaChartLine, width: 24, height: 24 }
                                         span { "Not Just Education But Continued Growth" }
                                     }
                                     p {
