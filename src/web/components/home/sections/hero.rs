@@ -1,9 +1,9 @@
 use dioxus::prelude::*;
-use dioxus_free_icons::icons::{fa_brands_icons::FaDiscord, fa_solid_icons::FaChevronDown};
+use dioxus_free_icons::icons::fa_brands_icons::FaDiscord;
 use dioxus_free_icons::Icon;
 use manganis::ImageAsset;
 
-use crate::web::constants::{APPLICATIONS_URL, DISCORD_URL};
+use crate::web::constants::{BLACK_ROSE_WEBSITE_URL, DISCORD_URL};
 
 #[component]
 pub fn Hero() -> Element {
@@ -22,16 +22,23 @@ pub fn Hero() -> Element {
                             src: AUTUMN_LOGO
                         }
                         h1 { class: "text-white font-bold sm:text-2xl lg:text-3xl xl:text-4xl",
-                            "EVE is complicated, Autumn makes it straightforward."
+                            "The Order of Autumn"
                         }
                         h2 { class: "text-white sm:text-lg lg:text-xl xl:text-2xl",
-                            "There are many twists and turns in the beginning of an EVE journey, why waste time learning the hard way when you can learn the right way?"
+                            "An EVE Online nullsec corporation part of "
+                            a {
+                                class: "link",
+                                href: BLACK_ROSE_WEBSITE_URL,
+                                target: "_blank",
+                                "Black Rose"
+                            }
+                            " alliance & Phoenix Coalition"
                         }
                         p { class: "text-white text-xs md:text-base",
-                            "Begin your journey in nullsec with The Order of Autumn, a corporation part of Black Rose alliance & Phoenix Coalition, or in highsec with Autumn Highsec Division."
+                            "Autumn is a real life first, new player focused organization with a heavy emphasis on organization, community, and high quality IT infrastructure."
                         }
                     }
-                    ul { class: "flex gap-2",
+                    ul { class: "flex flex-wrap gap-2 justify-center",
                         li {
                             a { href: DISCORD_URL, class: "btn px-2 md:px-4",
                                 Icon { width: 24, height: 24, icon: FaDiscord }
@@ -40,16 +47,12 @@ pub fn Hero() -> Element {
                         }
                         li {
                             a {
-                                href: APPLICATIONS_URL,
+                                href: "/join",
                                 class: "btn px-2 md:px-4 btn-primary",
-                                "Begin Your Journey"
+                                "Join Autumn"
                             }
                         }
                     }
-                }
-                div { class: "flex flex-col justify-self-end items-center text-white",
-                    span { class: "font-bold text-xl md:text-2xl", "Learn More" }
-                    Icon { width: 24, height: 24, icon: FaChevronDown }
                 }
             }
         }

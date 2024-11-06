@@ -6,18 +6,19 @@ use crate::web::constants::FEATURED_VIDEO;
 #[component]
 pub fn Endgame() -> Element {
     const FLEET_COMMANDER_IMAGE: ImageAsset =
-        manganis::mg!(image("assets/images/join/monitor.png")
+        manganis::mg!(image("./assets/images/join/monitor.png")
             .format(ImageType::Avif)
             .size(300, 200));
     const CORPORATION_LEADER_IMAGE: ImageAsset =
-        manganis::mg!(image("assets/images/join/azbel.png")
+        manganis::mg!(image("./assets/images/join/azbel.png")
             .format(ImageType::Avif)
             .size(300, 200));
-    const INDUSTRIALIST_IMAGE: ImageAsset = manganis::mg!(image("assets/images/join/rorqual.png")
-        .format(ImageType::Avif)
-        .size(300, 200));
+    const INDUSTRIALIST_IMAGE: ImageAsset =
+        manganis::mg!(image("./assets/images/join/rorqual.png")
+            .format(ImageType::Avif)
+            .size(300, 200));
     const SUPERCAPITAL_PILOT_IMAGE: ImageAsset =
-        manganis::mg!(image("assets/images/join/avatar.png")
+        manganis::mg!(image("./assets/images/join/avatar.png")
             .format(ImageType::Avif)
             .size(300, 200));
 

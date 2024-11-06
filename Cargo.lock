@@ -567,7 +567,6 @@ dependencies = [
  "dioxus-signals",
  "dioxus-ssr",
  "dioxus-web",
- "serde",
 ]
 
 [[package]]

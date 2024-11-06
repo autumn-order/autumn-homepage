@@ -1,47 +1,49 @@
 use dioxus::prelude::*;
-use dioxus_free_icons::icons::fa_brands_icons::FaDiscord;
+use dioxus_free_icons::icons::fa_brands_icons::{FaDiscord, FaGithub};
 use dioxus_free_icons::Icon;
 use manganis::ImageAsset;
 
-use crate::web::constants::{APPLICATIONS_URL, DISCORD_URL};
+use crate::web::constants::{DISCORD_URL, GITHUB_URL};
 
 #[component]
-pub fn JoinFooter() -> Element {
+pub fn Footer() -> Element {
     const AUTUMN_LOGO: ImageAsset = manganis::mg!(image("assets/autumn-logo-dark.png")
         .format(ImageType::Avif)
         .size(128, 128));
 
     rsx! {
         footer { class: "footer footer-center bg-base-200 text-base-content p-6 md:p-10 justify-center",
-            div { class: "max-w-[1440px] w-full",
-                aside { class: "flex flex-col items-center",
-                    a { href: "/join", class: "flex flex-col items-center",
+            div { class: "max-w-[1440px] w-full flex justify-between flex-wrap",
+                aside {
+                    a {
+                        href: "/",
+                        class: "btn btn-ghost flex items-center gap-2",
                         img {
-                            class: "w-32 h-32",
+                            class: "w-12 h-12",
                             alt: "Autumn Logo",
                             src: AUTUMN_LOGO
                         }
-                        p { class: "text-3xl font-bold", "Autumn" }
+                        p { class: "text-2xl font-bold", "Autumn" }
                     }
                 }
-                nav { class: "w-full",
-                    ul { class: "flex w-full",
-                        li { class: "w-1/2 pr-1 flex justify-end",
+                nav { class: "flex gap-2 w-full justify-between sm:w-fit sm:justify-end",
+                    ul { class: "flex list-none",
+                        li {
                             a {
                                 href: DISCORD_URL,
-                                class: "btn btn-outline px-2 md:px-4",
-                                Icon { width: 20, height: 20, icon: FaDiscord }
-                                "Autumn Discord"
+                                class: "btn btn-ghost btn-square",
+                                Icon { width: 24, height: 24, icon: FaDiscord }
                             }
                         }
-                        li { class: "w-1/2 pl-1 flex justify-start",
+                        li {
                             a {
-                                href: APPLICATIONS_URL,
-                                class: "btn btn-primary px-2 md:px-4",
-                                "Begin Your Journey"
+                                href: GITHUB_URL,
+                                class: "btn btn-ghost btn-square",
+                                Icon { width: 24, height: 24, icon: FaGithub }
                             }
                         }
                     }
+                    a { href: "/join", class: "btn px-2 md:px-4 btn-primary", "Join Autumn" }
                 }
             }
             p { class: "text-xs",

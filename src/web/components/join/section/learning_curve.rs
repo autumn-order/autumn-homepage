@@ -8,7 +8,7 @@ use manganis::ImageAsset;
 #[component]
 pub fn LearningCurve() -> Element {
     const EVE_LEARNING_CURVE_IMAGE: ImageAsset =
-        manganis::mg!(image("assets/images/join/the-great-curve.jpg")
+        manganis::mg!(image("./assets/images/join/the-great-curve.jpg")
             .format(ImageType::Avif)
             .size(647, 500));
 
