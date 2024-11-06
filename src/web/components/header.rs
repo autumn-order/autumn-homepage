@@ -30,23 +30,23 @@ pub fn Header() -> Element {
                 }
                 ul { class: "hidden md:flex gap-2",
                     li {
-                        a { class: "btn", href: DISCORD_URL,
-                            Icon { width: 24, height: 24, fill: "black", icon: FaDiscord }
+                        a { class: "btn btn-outline", href: DISCORD_URL,
+                            Icon { width: 24, height: 24, icon: FaDiscord }
                             "Autumn Discord"
                         }
                     }
                     li {
-                        a { class: "btn btn-neutral", href: APPLICATIONS_URL, "Begin Your Journey" }
+                        a { class: "btn btn-primary", href: APPLICATIONS_URL, "Begin Your Journey" }
                     }
                 }
                 details { class: "dropdown dropdown-end flex md:hidden",
                     summary { class: "btn btn-square btn-ghost",
-                        Icon { width: 24, height: 24, fill: "black", icon: FaBars }
+                        Icon { width: 24, height: 24, icon: FaBars }
                     }
                     ul { class: "menu dropdown-content bg-base-100 w-52 rounded-b",
                         li {
                             a { href: DISCORD_URL,
-                                Icon { width: 24, height: 24, fill: "black", icon: FaDiscord }
+                                Icon { width: 24, height: 24, icon: FaDiscord }
                                 "Autumn Discord"
                             }
                         }

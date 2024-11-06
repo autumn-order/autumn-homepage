@@ -34,17 +34,19 @@ pub fn CallToAction() -> Element {
                     }
                     ul { class: "flex justify-evenly w-full",
                         li { class: "flex flex-col items-center gap-2 w-1/2",
-                            Icon { width: 24, height: 24, fill: "black", icon: FaUsers }
+                            Icon { width: 24, height: 24, icon: FaUsers }
                             p { "Members" }
                             p { "{props.corporation.members}" }
                         }
                         li { class: "flex flex-col items-center gap-2 w-1/2",
-                            Icon { width: 24, height: 24, fill: "black", icon: FaSkullCrossbones }
+                            Icon { width: 24, height: 24, icon: FaSkullCrossbones }
                             p { "Ships Destroyed" }
                             p { "{props.corporation.ships_destroyed}" }
                         }
                     }
-                    a { href: APPLICATIONS_URL, class: "btn", { props.corporation.cta_text } }
+                    a { href: APPLICATIONS_URL, class: "btn btn-primary",
+                        { props.corporation.cta_text }
+                    }
                 }
             }
         )

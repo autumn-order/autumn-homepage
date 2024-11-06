@@ -34,14 +34,14 @@ pub fn Hero() -> Element {
                     ul { class: "flex gap-2",
                         li {
                             a { href: DISCORD_URL, class: "btn px-2 md:px-4",
-                                Icon { width: 24, height: 24, fill: "black", icon: FaDiscord }
+                                Icon { width: 24, height: 24, icon: FaDiscord }
                                 "Autumn Discord"
                             }
                         }
                         li {
                             a {
                                 href: APPLICATIONS_URL,
-                                class: "btn px-2 md:px-4 btn-neutral",
+                                class: "btn px-2 md:px-4 btn-primary",
                                 "Begin Your Journey"
                             }
                         }
@@ -49,7 +49,7 @@ pub fn Hero() -> Element {
                 }
                 div { class: "flex flex-col justify-self-end items-center text-white",
                     span { class: "font-bold text-xl md:text-2xl", "Learn More" }
-                    Icon { width: 24, height: 24, fill: "white", icon: FaChevronDown }
+                    Icon { width: 24, height: 24, icon: FaChevronDown }
                 }
             }
         }

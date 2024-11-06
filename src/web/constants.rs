@@ -39,7 +39,7 @@ pub const CORPORATIONS: &[CorpCardData] = &[
 pub const FAQ: &[FAQEntry] = &[
     FAQEntry {
         question: "What is Autumn's main focus?",
-        answer: "Our primary focus is newer players & helping them grow, outside that we focus on PvP with a mix of industry & PvE on the side.",
+        answer: "Our primary focus is newer players & helping them grow, outside of that we focus on PvP with a mix of industry & PvE on the side.",
     },
     FAQEntry {
         question: "What is Autumn's ultimate goal?",
