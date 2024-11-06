@@ -33,7 +33,7 @@ pub fn LearningCurve() -> Element {
                     }
                     ul { class: "md:w-1/2 flex flex-col gap-4",
                         li {
-                            div { class: "card card-compact shadow",
+                            div { class: "card card-compact shadow md:h-48 lg:h-32",
                                 div { class: "card-body",
                                     h2 { class: "card-title",
                                         div { class: "w-6 h-6",
@@ -48,7 +48,7 @@ pub fn LearningCurve() -> Element {
                             }
                         }
                         li {
-                            div { class: "card card-compact shadow",
+                            div { class: "card card-compact shadow md:h-48 lg:h-32",
                                 div { class: "card-body",
                                     h2 { class: "card-title",
                                         div { class: "w-6 h-6",
@@ -57,13 +57,13 @@ pub fn LearningCurve() -> Element {
                                         span { "Classes" }
                                     }
                                     p {
-                                        "Begin with the advantage of connections with a vast & highly experienced community ranging from veteran capital pilots, hardcore industrialists, large scale corporation leaders, and those just beginning their EVE journey."
+                                        "Participate in a wide range of classes offered by both Autumn and our alliance Black Rose ranging from industry, exploration, leading fleets, growing corporations, and more!"
                                     }
                                 }
                             }
                         }
                         li {
-                            div { class: "card card-compact shadow",
+                            div { class: "card card-compact shadow md:h-48 lg:h-32",
                                 div { class: "card-body",
                                     h2 { class: "card-title",
                                         div { class: "w-6 h-6",
@@ -72,13 +72,13 @@ pub fn LearningCurve() -> Element {
                                         span { "Information" }
                                     }
                                     p {
-                                        "Begin with the advantage of connections with a vast & highly experienced community ranging from veteran capital pilots, hardcore industrialists, large scale corporation leaders, and those just beginning their EVE journey."
+                                        "Access to extensive resources to gain that foundational knowledge in your areas of EVE including a highly active Discord, an extensive wiki, and a knowledgeable community."
                                     }
                                 }
                             }
                         }
                         li {
-                            div { class: "card card-compact shadow",
+                            div { class: "card card-compact shadow md:h-48 lg:h-32",
                                 div { class: "card-body",
                                     h2 { class: "card-title",
                                         div { class: "w-6 h-6",
@@ -87,7 +87,7 @@ pub fn LearningCurve() -> Element {
                                         span { "Play at Your Pace" }
                                     }
                                     p {
-                                        "Begin with the advantage of connections with a vast & highly experienced community ranging from veteran capital pilots, hardcore industrialists, large scale corporation leaders, and those just beginning their EVE journey."
+                                        "Join us in either highsec or nullsec and remember that real life always comes first, this is a game after all. No mandatory fleet participation minimums, step away to take care of real life when needed and pick up where you left off whenever you're ready."
                                     }
                                 }
                             }
