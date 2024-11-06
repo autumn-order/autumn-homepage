@@ -14,13 +14,13 @@ pub fn Footer() -> Element {
     rsx! {
         footer { class: "footer footer-center bg-base-200 text-base-content p-10 flex justify-center",
             div { class: "max-w-[1440px] w-full",
-                aside {
+                aside { class: "flex flex-col items-center",
                     img {
                         class: "w-32 h-32",
                         alt: "Autumn Logo",
                         src: AUTUMN_LOGO
                     }
-                    p { class: "font-bold", "The Order of Autumn" }
+                    p { class: "text-2xl font-bold", "The Order of Autumn" }
                 }
                 nav {
                     ul { class: "flex gap-2",
@@ -41,7 +41,7 @@ pub fn Footer() -> Element {
                         }
                     }
                 }
-                p { class: "text-xs",
+                p { class: "text-xs pt-6",
                     "EVE Online and the EVE logo are the registered trademarks of CCP hf. All rights are reserved worldwide. All other trademarks are the property of their respective owners. EVE Online, the EVE logo, EVE and all associated logos and designs are the intellectual property of CCP hf. All artwork, screenshots, characters, vehicles, storylines, world facts or other recognizable features of the intellectual property relating to these trademarks are likewise the intellectual property of CCP hf. CCP hf. has granted permission to Autumn to use EVE Online and all associated logos and designs for promotional and information purposes on its website but does not endorse, and is not in any way affiliated with, Autumn. CCP is in no way responsible for the content on or functioning of this website, nor can it be liable for any damage arising from the use of this website."
                 }
             }
