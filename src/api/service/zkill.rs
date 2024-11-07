@@ -1,25 +1,18 @@
 use log::{error, warn};
 
 use crate::api::{
-    constant::USER_AGENT,
     error::{HttpError, ReqwestOrHttpError},
     model::zkill::ZkillStats,
 };
 
-const ZKILL_URL: &str = "https://zkillboard.com";
 const MAX_ATTEMPTS: u32 = 3;
 
 pub async fn get_zkill_corporation_stats(
+    client: &reqwest::Client,
+    zkill_url: &str,
     corporation_id: i32,
-    api_url: Option<&str>,
 ) -> Result<ZkillStats, ReqwestOrHttpError> {
-    let client: reqwest::Client = reqwest::Client::builder()
-        .user_agent(USER_AGENT)
-        .timeout(std::time::Duration::from_secs(10))
-        .build()?;
-
-    let base_url = api_url.unwrap_or(ZKILL_URL);
-    let request_url = format!("{}/api/stats/corporationID/{}/", base_url, corporation_id);
+    let request_url = format!("{}/api/stats/corporationID/{}/", zkill_url, corporation_id);
 
     let mut attempt = 0;
 
@@ -72,12 +65,18 @@ mod tests {
     use super::*;
     use mockito::Server;
 
+    use crate::api::constant::USER_AGENT;
+
     #[tokio::test]
     async fn test_get_zkill_corporation_stats_success() {
         let mut server = Server::new_async().await;
+        let client: reqwest::Client = reqwest::Client::builder()
+            .user_agent(USER_AGENT)
+            .timeout(std::time::Duration::from_secs(10))
+            .build()
+            .unwrap();
 
         let base_url = server.url();
-
         let corporation_id = 12345;
 
         let mock = server
@@ -89,7 +88,7 @@ mod tests {
             .with_body(r#"{"info": {"member_count": 100}, "ships_destroyed": 50}"#)
             .create();
 
-        let result = get_zkill_corporation_stats(corporation_id, Some(&base_url)).await;
+        let result = get_zkill_corporation_stats(&client, &base_url, corporation_id).await;
 
         mock.assert();
 
@@ -102,9 +101,13 @@ mod tests {
     #[tokio::test]
     async fn test_get_zkill_corporation_stats_timeout() {
         let mut server = Server::new_async().await;
+        let client: reqwest::Client = reqwest::Client::builder()
+            .user_agent(USER_AGENT)
+            .timeout(std::time::Duration::from_secs(10))
+            .build()
+            .unwrap();
 
         let base_url = server.url();
-
         let corporation_id = 12345;
 
         let mock = server
@@ -116,7 +119,7 @@ mod tests {
             .expect_at_most(3)
             .create();
 
-        let result = get_zkill_corporation_stats(corporation_id, Some(&base_url)).await;
+        let result = get_zkill_corporation_stats(&client, &base_url, corporation_id).await;
 
         mock.assert();
 
@@ -126,9 +129,13 @@ mod tests {
     #[tokio::test]
     async fn test_get_zkill_corporation_stats_Failure() {
         let mut server = Server::new_async().await;
+        let client: reqwest::Client = reqwest::Client::builder()
+            .user_agent(USER_AGENT)
+            .timeout(std::time::Duration::from_secs(10))
+            .build()
+            .unwrap();
 
         let base_url = server.url();
-
         let corporation_id = 12345;
 
         let mock = server
@@ -140,7 +147,7 @@ mod tests {
             .expect_at_most(1)
             .create();
 
-        let result = get_zkill_corporation_stats(corporation_id, Some(&base_url)).await;
+        let result = get_zkill_corporation_stats(&client, &base_url, corporation_id).await;
 
         mock.assert();
 
