@@ -10,7 +10,7 @@ pub struct Model {
     pub corporation_id: i32,
     pub member_count: i32,
     pub ships_destroyed: i32,
-    pub date: DateTime,
+    pub date: DateTimeUtc,
 }
 
 #[derive(Copy, Clone, Debug, EnumIter, DeriveRelation)]

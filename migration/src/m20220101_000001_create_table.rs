@@ -16,11 +16,7 @@ impl MigrationTrait for Migration {
                     .col(integer(Stats::CorporationId).not_null())
                     .col(integer(Stats::MemberCount).not_null().default(0))
                     .col(integer(Stats::ShipsDestroyed).not_null().default(0))
-                    .col(
-                        date_time(Stats::Date)
-                            .not_null()
-                            .default(Utc::now().naive_utc()),
-                    )
+                    .col(timestamp(Stats::Date).not_null().default(Utc::now()))
                     .to_owned(),
             )
             .await
