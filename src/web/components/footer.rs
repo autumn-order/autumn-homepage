@@ -3,7 +3,7 @@ use dioxus_free_icons::icons::fa_brands_icons::{FaDiscord, FaGithub};
 use dioxus_free_icons::Icon;
 use manganis::ImageAsset;
 
-use crate::web::constants::{DISCORD_URL, GITHUB_URL};
+use crate::web::constant::{DISCORD_URL, GITHUB_URL};
 
 #[component]
 pub fn Footer() -> Element {

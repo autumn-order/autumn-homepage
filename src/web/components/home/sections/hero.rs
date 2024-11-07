@@ -3,7 +3,7 @@ use dioxus_free_icons::icons::fa_brands_icons::FaDiscord;
 use dioxus_free_icons::Icon;
 use manganis::ImageAsset;
 
-use crate::web::constants::{BLACK_ROSE_WEBSITE_URL, DISCORD_URL};
+use crate::web::constant::{BLACK_ROSE_WEBSITE_URL, DISCORD_URL};
 
 #[component]
 pub fn Hero() -> Element {

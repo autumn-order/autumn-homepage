@@ -9,13 +9,18 @@ edition = "2021"
 [dependencies]
 serde = { version = "1.0.197", features = ["derive"] }
 
-dioxus = { version = "0.5.6", features = ["web", "router"] }
+dioxus = { version = "0.5.6", features = ["fullstack", "router"] }
+dioxus-logger = "0.5.1"
 dioxus-helmet = { git = "https://github.com/dioxus-community/dioxus-helmet.git" }
 dioxus-free-icons = { version = "0.8.6", features = ["font-awesome-brands", "font-awesome-solid"] }
-
-# Debug
-dioxus-logger = "0.5.1"
 manganis = "0.2.2"
+chrono = { version = "0.4.38", features = ["serde"] }
+reqwest = { version = "0.12.9", features = ["json"] }
+serde_json = "1.0.132"
+thiserror = "2.0.0"
+tokio = { version = "1.41.0", features = ["macros"] }
+mockito = "1.5.0"
+log = "0.4.22"
 
 [features]
 default = []

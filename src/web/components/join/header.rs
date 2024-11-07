@@ -4,7 +4,7 @@ use dioxus_free_icons::icons::fa_solid_icons::FaBars;
 use dioxus_free_icons::Icon;
 use manganis::ImageAsset;
 
-use crate::web::constants::{APPLICATIONS_URL, DISCORD_URL};
+use crate::web::constant::{APPLICATIONS_URL, DISCORD_URL};
 
 #[component]
 pub fn JoinHeader() -> Element {

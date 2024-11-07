@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 
-use crate::web::constants::FAQ;
+use crate::web::constant::FAQ;
 
 #[component]
 pub fn FrequentlyAskedQuestions() -> Element {

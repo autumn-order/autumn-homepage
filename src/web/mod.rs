@@ -1,5 +1,5 @@
 pub mod components;
-pub mod constants;
+pub mod constant;
 pub mod router;
 pub mod routes;
 
