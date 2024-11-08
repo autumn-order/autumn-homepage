@@ -1,9 +1,9 @@
 #![allow(non_snake_case)]
 
-pub mod api;
-pub mod web;
+#[cfg(feature = "server")]
+mod api;
 
-use dotenv::dotenv;
+mod web;
 
 use dioxus::prelude::*;
 use dioxus_logger::tracing;
@@ -11,7 +11,10 @@ use dioxus_logger::tracing;
 use web::Route;
 
 fn main() {
-    dotenv().ok();
+    #[cfg(feature = "server")]
+    {
+        dotenv::dotenv().ok();
+    }
 
     dioxus_logger::init(tracing::Level::INFO).expect("failed to init logger");
     tracing::info!("starting app");
