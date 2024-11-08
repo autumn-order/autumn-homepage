@@ -17,3 +17,4 @@ node_modules
 # Autumn
 db.sqlite
 .env
+.vscode/settings.json

@@ -2,6 +2,11 @@
 
 ## Development
 
+Copy `.vscode/settings.example.json` to `.vscode/settings.example.json` to enable/disable features.
+For example if you are working on the API enable the `"server"` feature for rust-analyzer like this in `settings.json`:
+
+`"rust-analyzer.cargo.features": ["server"]`
+
 ### Install Dependencies
 
 - Install Rust <https://rustup.rs/>
