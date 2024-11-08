@@ -13,6 +13,8 @@ members = [".", "migration", "entity"]
 migration = { path = "migration" } 
 entity = { path = "entity" } 
 
+eve_esi = "0.1.0"
+
 serde = { version = "1.0.197", features = ["derive"] }
 chrono = { version = "0.4.38", features = ["serde"] }
 reqwest = { version = "0.12.9", features = ["json"] }
@@ -28,6 +30,7 @@ dioxus-logger = "0.5.1"
 dioxus-helmet = { git = "https://github.com/dioxus-community/dioxus-helmet.git" }
 dioxus-free-icons = { version = "0.8.6", features = ["font-awesome-brands", "font-awesome-solid"] }
 manganis = "0.2.2"
+dotenv = "0.15.0"
 
 [features]
 default = []
