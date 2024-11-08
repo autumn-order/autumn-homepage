@@ -1,8 +1,6 @@
 #![allow(non_snake_case)]
 
-#[cfg(feature = "server")]
 mod api;
-
 mod web;
 
 use dioxus::prelude::*;
