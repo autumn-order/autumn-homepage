@@ -12,3 +12,6 @@ pub mod service;
 
 #[cfg(feature = "server")]
 pub mod task;
+
+#[cfg(feature = "server")]
+pub mod update;

@@ -34,8 +34,11 @@ thiserror = { version = "2.0.0", optional = true}
 mockito = {version = "1.5.0", optional = true }
 log = { version = "0.4.22", optional = true}
 sea-orm = { version = "1.1.1", optional =true}
+job_scheduler = { version = "1.2.1", optional = true }
+tokio-cron-scheduler = { version = "0.13.0", optional = true }
+
 
 [features]
 default = []
-server = ["dioxus/axum", "migration" , "entity", "eve_esi", "dotenv", "tokio", "reqwest", "serde_json", "thiserror", "mockito", "log", "sea-orm"]
+server = ["dioxus/axum", "migration" , "entity", "eve_esi", "dotenv", "tokio", "reqwest", "serde_json", "thiserror", "mockito", "log", "sea-orm", "job_scheduler", "tokio-cron-scheduler"]
 web = ["dioxus/web"]
