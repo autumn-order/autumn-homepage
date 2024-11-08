@@ -1479,12 +1479,11 @@ dependencies = [
 
 [[package]]
 name = "eve_esi"
-version = "0.1.0"
+version = "0.2.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f7e67cbe2a6fd12bd6697ca0a68a4b94544ea60e5792ee24974125c605fa89d7"
+checksum = "1b77e71b094de579e870dca5eff83ea462343bb4d6adbcf4223ff89402b8bcad"
 dependencies = [
  "chrono",
- "lazy_static",
  "reqwest 0.12.9",
  "serde",
 ]

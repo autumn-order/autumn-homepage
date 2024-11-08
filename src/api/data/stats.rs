@@ -18,12 +18,10 @@ impl<'a> StatsRepository<'a> {
         &self,
         corporation_id: i32,
         member_count: i32,
-        ships_destroyed: i32,
     ) -> Result<Model, sea_orm::DbErr> {
         ActiveModel {
             corporation_id: ActiveValue::set(corporation_id),
             member_count: ActiveValue::set(member_count),
-            ships_destroyed: ActiveValue::set(ships_destroyed),
             date: ActiveValue::set(chrono::Utc::now()),
             ..Default::default()
         }
@@ -75,16 +73,14 @@ mod tests {
 
         let corporation_id = 12345;
         let member_count = 189;
-        let ships_destroyed = 6762;
 
         let result = repository
-            .create(corporation_id, member_count, ships_destroyed)
+            .create(corporation_id, member_count)
             .await
             .unwrap();
 
         assert_eq!(result.corporation_id, corporation_id);
         assert_eq!(result.member_count, member_count);
-        assert_eq!(result.ships_destroyed, ships_destroyed);
     }
 
     #[tokio::test]
@@ -95,10 +91,9 @@ mod tests {
 
         let corporation_id = 12345;
         let member_count = 189;
-        let ships_destroyed = 6762;
 
         let _ = repository
-            .create(corporation_id, member_count, ships_destroyed)
+            .create(corporation_id, member_count)
             .await
             .unwrap();
 
@@ -109,6 +104,5 @@ mod tests {
         assert!(!result.is_empty());
         assert_eq!(result[0].corporation_id, corporation_id);
         assert_eq!(result[0].member_count, member_count);
-        assert_eq!(result[0].ships_destroyed, ships_destroyed);
     }
 }

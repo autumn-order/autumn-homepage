@@ -9,7 +9,6 @@ pub struct Model {
     pub id: i32,
     pub corporation_id: i32,
     pub member_count: i32,
-    pub ships_destroyed: i32,
     pub date: DateTimeUtc,
 }
 

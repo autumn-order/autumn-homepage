@@ -15,7 +15,6 @@ impl MigrationTrait for Migration {
                     .col(pk_auto(Stats::Id))
                     .col(integer(Stats::CorporationId).not_null())
                     .col(integer(Stats::MemberCount).not_null().default(0))
-                    .col(integer(Stats::ShipsDestroyed).not_null().default(0))
                     .col(timestamp(Stats::Date).not_null().default(Utc::now()))
                     .to_owned(),
             )
@@ -35,6 +34,5 @@ enum Stats {
     Id,
     CorporationId,
     MemberCount,
-    ShipsDestroyed,
     Date,
 }
