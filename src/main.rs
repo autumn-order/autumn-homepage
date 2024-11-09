@@ -4,29 +4,60 @@ mod api;
 mod web;
 
 use dioxus::prelude::*;
-use dioxus_logger::tracing;
 
 use web::Route;
 
 fn main() {
+    #[cfg(feature = "web")]
+    launch(App);
+
     #[cfg(feature = "server")]
     {
         use api::update::schedule_tasks;
-        use std::thread;
+        use axum::routing::*;
+        use axum::Extension;
+        use sea_orm::Database;
+        use std::sync::Arc;
+        use tokio_cron_scheduler::JobScheduler;
 
         dotenv::dotenv().ok();
 
-        thread::spawn(|| {
-            let rt = tokio::runtime::Runtime::new().unwrap();
-            rt.block_on(async {
-                schedule_tasks().await.unwrap();
-            });
-        });
-    }
+        tokio::runtime::Runtime::new()
+            .unwrap()
+            .block_on(async move {
+                let database_url =
+                    std::env::var("DATABASE_URL").expect("DATABASE_URL is not set in .env");
 
-    dioxus_logger::init(tracing::Level::INFO).expect("failed to init logger");
-    tracing::info!("starting app");
-    launch(App);
+                let db = Arc::new(
+                    Database::connect(database_url)
+                        .await
+                        .expect("Failed to connect to the database"),
+                );
+
+                let sched = JobScheduler::new()
+                    .await
+                    .expect("Failed to create JobScheduler");
+
+                let db_clone = Arc::clone(&db);
+                schedule_tasks(&sched, db_clone).await;
+
+                sched.start().await.expect("Failed to start scheduler");
+
+                let app = Router::new()
+                    .serve_dioxus_application(ServeConfig::builder().build(), || {
+                        VirtualDom::new(App)
+                    })
+                    .await
+                    .layer(Extension(db));
+
+                let addr = std::net::SocketAddr::from(([127, 0, 0, 1], 8080));
+                let listener = tokio::net::TcpListener::bind(&addr).await.unwrap();
+
+                axum::serve(listener, app.into_make_service())
+                    .await
+                    .unwrap();
+            });
+    }
 }
 
 fn App() -> Element {
