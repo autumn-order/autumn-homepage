@@ -1,4 +1,6 @@
 pub mod controller;
+
+#[cfg(feature = "server")]
 pub mod model;
 
 #[cfg(feature = "server")]

@@ -1,8 +1,13 @@
-use chrono::{DateTime, Utc};
-use serde::{Deserialize, Serialize};
+use entity::stats::Model;
 
-#[derive(Serialize, Deserialize)]
-pub struct StatsDto {
-    pub member_count: i32,
-    pub date: DateTime<Utc>,
+use crate::model::stats::StatsDto;
+
+impl From<Model> for StatsDto {
+    fn from(model: Model) -> Self {
+        StatsDto {
+            corporation_ids: model.corporation_id,
+            member_count: model.member_count,
+            date: model.date,
+        }
+    }
 }

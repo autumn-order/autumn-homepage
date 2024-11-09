@@ -7,13 +7,29 @@ use dioxus_free_icons::{
     Icon,
 };
 
-use crate::web::constant::{CorpCardData, APPLICATIONS_URL, CORPORATIONS, DISCORD_URL};
+use crate::{
+    api::controller::stats::get_stats,
+    model::stats::StatsDto,
+    web::constant::{CorpCardData, APPLICATIONS_URL, CORPORATIONS, DISCORD_URL},
+};
 
 #[component]
 pub fn CallToAction() -> Element {
     #[derive(PartialEq, Clone, Props)]
     struct CorporationCardProps {
         corporation: &'static CorpCardData,
+    }
+
+    let mut stats = use_signal(Vec::<StatsDto>::new);
+
+    let future = use_resource(|| async move { get_stats().await });
+
+    match &*future.read_unchecked() {
+        Some(Ok(stats_data)) => {
+            stats.set(stats_data.to_vec());
+        }
+        Some(Err(_)) => (),
+        None => (),
     }
 
     fn CorporationCard(props: CorporationCardProps) -> Element {

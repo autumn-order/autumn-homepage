@@ -1,6 +1,7 @@
 #![allow(non_snake_case)]
 
 mod api;
+mod model;
 mod web;
 
 use dioxus::prelude::*;
@@ -15,7 +16,6 @@ fn main() {
     {
         use api::update::schedule_tasks;
         use axum::routing::*;
-        use axum::Extension;
         use sea_orm::Database;
         use std::sync::Arc;
         use tokio_cron_scheduler::JobScheduler;
@@ -43,12 +43,12 @@ fn main() {
 
                 sched.start().await.expect("Failed to start scheduler");
 
+                // This needs a .layer(Extension(db)) when it is determined how to access it from a Dioxus server function
                 let app = Router::new()
                     .serve_dioxus_application(ServeConfig::builder().build(), || {
                         VirtualDom::new(App)
                     })
-                    .await
-                    .layer(Extension(db));
+                    .await;
 
                 let addr = std::net::SocketAddr::from(([127, 0, 0, 1], 8080));
                 let listener = tokio::net::TcpListener::bind(&addr).await.unwrap();
