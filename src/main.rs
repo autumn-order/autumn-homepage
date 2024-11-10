@@ -16,8 +16,8 @@ fn main() {
     {
         use api::update::schedule_tasks;
         use axum::routing::*;
+        use axum::Extension;
         use sea_orm::Database;
-        use std::sync::Arc;
         use tokio_cron_scheduler::JobScheduler;
 
         dotenv::dotenv().ok();
@@ -28,18 +28,15 @@ fn main() {
                 let database_url =
                     std::env::var("DATABASE_URL").expect("DATABASE_URL is not set in .env");
 
-                let db = Arc::new(
-                    Database::connect(database_url)
-                        .await
-                        .expect("Failed to connect to the database"),
-                );
+                let db = Database::connect(database_url)
+                    .await
+                    .expect("Failed to connect to the database");
 
                 let sched = JobScheduler::new()
                     .await
                     .expect("Failed to create JobScheduler");
 
-                let db_clone = Arc::clone(&db);
-                schedule_tasks(&sched, db_clone).await;
+                schedule_tasks(&sched, &db).await;
 
                 sched.start().await.expect("Failed to start scheduler");
 
@@ -48,7 +45,8 @@ fn main() {
                     .serve_dioxus_application(ServeConfig::builder().build(), || {
                         VirtualDom::new(App)
                     })
-                    .await;
+                    .await
+                    .layer(Extension(db));
 
                 let addr = std::net::SocketAddr::from(([127, 0, 0, 1], 8080));
                 let listener = tokio::net::TcpListener::bind(&addr).await.unwrap();

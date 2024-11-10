@@ -5,12 +5,9 @@ use crate::model::stats::StatsDto;
 #[server]
 pub async fn get_stats() -> Result<Vec<StatsDto>, ServerFnError> {
     use crate::api::data::stats::StatsRepository;
-    use sea_orm::Database;
+    use sea_orm::DatabaseConnection;
 
-    let database_url = std::env::var("DATABASE_URL").expect("DATABASE_URL is not set in .env");
-    let db = Database::connect(database_url)
-        .await
-        .expect("Failed to connect to the database");
+    let db: axum::Extension<DatabaseConnection> = extract().await?;
 
     let stats_repository = StatsRepository::new(&db);
 
