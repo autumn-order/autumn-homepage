@@ -1,4 +1,4 @@
-use sea_orm::{ActiveModelTrait, ActiveValue, DatabaseConnection, PaginatorTrait};
+use sea_orm::{ActiveModelTrait, ActiveValue, DatabaseConnection, PaginatorTrait, QueryOrder};
 use sea_orm::{EntityTrait, QueryFilter};
 
 use entity::prelude::Stats;
@@ -41,7 +41,11 @@ impl<'a> StatsRepository<'a> {
             query = query.filter(filter);
         }
 
-        query.paginate(self.db, page_size).fetch_page(page).await
+        query
+            .order_by_desc(entity::stats::Column::Date)
+            .paginate(self.db, page_size)
+            .fetch_page(page)
+            .await
     }
 }
 

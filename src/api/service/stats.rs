@@ -1,3 +1,4 @@
+use chrono::{Duration, Utc};
 use log::warn;
 use sea_orm::{ColumnTrait, DatabaseConnection};
 
@@ -27,10 +28,9 @@ pub async fn update_corporation_stats(
 
         if !recent_entries.is_empty() {
             let recent_entry = &recent_entries[0];
-            let now = chrono::Utc::now();
-            let duration = now.signed_duration_since(recent_entry.date);
 
-            if duration.num_hours() < 24 {
+            let now = Utc::now();
+            if now - recent_entry.date < Duration::hours(24) {
                 continue;
             }
         }
@@ -97,6 +97,7 @@ mod tests {
         let esi_client = eve_esi::Client::new(reqwest_client);
 
         let corporation_ids = &[98785281, 98784256];
+        update_corporation_stats(&db, &esi_client, corporation_ids).await;
         update_corporation_stats(&db, &esi_client, corporation_ids).await;
 
         let stats_repository = StatsRepository::new(&db);
