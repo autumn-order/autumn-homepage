@@ -3,8 +3,6 @@ pub struct CorpCardData {
     pub name: &'static str,
     pub corporation_id: u64,
     pub location: &'static str,
-    pub members: usize,
-    pub ships_destroyed: usize,
     pub cta_text: &'static str,
 }
 
@@ -19,24 +17,19 @@ pub const BLACK_ROSE_WEBSITE_URL: &str = "https://black-rose.space";
 pub const APPLICATIONS_URL: &str = "https://apply.autumn-order.com";
 pub const FEATURED_VIDEO: &str = "https://www.youtube.com/embed/AdfFnTt2UT0?si=x3rGt9pHRJHZ9g8i";
 
-pub const CORPORATIONS: &[CorpCardData] = &[
-    CorpCardData {
-        name: "The Order of Autumn",
-        corporation_id: 98785281,
-        location: "Nullsec",
-        members: 0,
-        ships_destroyed: 0,
-        cta_text: "Begin Your Journey in Nullsec",
-    },
-    CorpCardData {
-        name: "Autumn Highsec Division",
-        corporation_id: 98784256,
-        location: "Highsec",
-        members: 0,
-        ships_destroyed: 0,
-        cta_text: "Begin Your Journey in Highsec",
-    },
-];
+pub const AUTUMN_ORDER_CORP_INFO: CorpCardData = CorpCardData {
+    name: "The Order of Autumn",
+    corporation_id: 98785281,
+    location: "Nullsec",
+    cta_text: "Begin Your Journey in Nullsec",
+};
+
+pub const AUTUMN_HIGHSEC_CORP_INFO: CorpCardData = CorpCardData {
+    name: "Autumn Highsec Division",
+    corporation_id: 98784256,
+    location: "Highsec",
+    cta_text: "Begin Your Journey in Highsec",
+};
 
 pub const FAQ: &[FAQEntry] = &[
     FAQEntry {

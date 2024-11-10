@@ -1,16 +1,16 @@
 use dioxus::prelude::*;
 use dioxus_free_icons::{
-    icons::{
-        fa_brands_icons::FaDiscord,
-        fa_solid_icons::{FaSkullCrossbones, FaUsers},
-    },
+    icons::{fa_brands_icons::FaDiscord, fa_solid_icons::FaUsers},
     Icon,
 };
 
 use crate::{
     api::controller::stats::get_stats,
     model::stats::StatsDto,
-    web::constant::{CorpCardData, APPLICATIONS_URL, CORPORATIONS, DISCORD_URL},
+    web::constant::{
+        CorpCardData, APPLICATIONS_URL, AUTUMN_HIGHSEC_CORP_INFO, AUTUMN_ORDER_CORP_INFO,
+        DISCORD_URL,
+    },
 };
 
 #[component]
@@ -18,18 +18,48 @@ pub fn CallToAction() -> Element {
     #[derive(PartialEq, Clone, Props)]
     struct CorporationCardProps {
         corporation: &'static CorpCardData,
+        stats: StatsDto,
     }
+
+    let mut loaded = use_signal(|| false);
 
     let mut stats = use_signal(Vec::<StatsDto>::new);
 
-    let future = use_resource(|| async move { get_stats().await });
+    let mut latest_autumn_order_stats = use_signal(StatsDto::default);
+    let mut latest_autumn_highsec_stats = use_signal(StatsDto::default);
 
-    match &*future.read_unchecked() {
-        Some(Ok(stats_data)) => {
-            stats.set(stats_data.to_vec());
+    if !loaded() {
+        let future = use_resource(|| async move { get_stats().await });
+
+        match &*future.read_unchecked() {
+            Some(Ok(stats_data)) => {
+                latest_autumn_order_stats.set(
+                    stats_data
+                        .iter()
+                        .find(|x| x.corporation_id == 98785281)
+                        .into_iter()
+                        .max_by(|a, b| a.date.cmp(&b.date))
+                        .cloned()
+                        .unwrap_or_default(),
+                );
+
+                latest_autumn_highsec_stats.set(
+                    stats_data
+                        .iter()
+                        .find(|x| x.corporation_id == 98784256)
+                        .into_iter()
+                        .max_by(|a, b| a.date.cmp(&b.date))
+                        .cloned()
+                        .unwrap_or_default(),
+                );
+
+                stats.set(stats_data.to_vec());
+
+                loaded.set(true);
+            }
+            Some(Err(_)) => (),
+            None => (),
         }
-        Some(Err(_)) => (),
-        None => (),
     }
 
     fn CorporationCard(props: CorporationCardProps) -> Element {
@@ -52,12 +82,7 @@ pub fn CallToAction() -> Element {
                         li { class: "flex flex-col items-center gap-2 w-1/2",
                             Icon { width: 24, height: 24, icon: FaUsers }
                             p { "Members" }
-                            p { "{props.corporation.members}" }
-                        }
-                        li { class: "flex flex-col items-center gap-2 w-1/2",
-                            Icon { width: 24, height: 24, icon: FaSkullCrossbones }
-                            p { "Ships Destroyed" }
-                            p { "{props.corporation.ships_destroyed}" }
+                            p { "{props.stats.member_count}" }
                         }
                     }
                     a { href: APPLICATIONS_URL, class: "btn btn-primary",
@@ -89,10 +114,10 @@ pub fn CallToAction() -> Element {
                         }
                         ul { class: "flex flex-wrap justify-center",
                             li { class: "py-2 px-8 md:pr-2 md:py-0",
-                                CorporationCard { corporation: &CORPORATIONS[0] }
+                                CorporationCard { corporation: &AUTUMN_ORDER_CORP_INFO, stats: latest_autumn_order_stats() }
                             }
                             li { class: "py-2 px-8 md:pl-2 md:py-0",
-                                CorporationCard { corporation: &CORPORATIONS[1] }
+                                CorporationCard { corporation: &AUTUMN_HIGHSEC_CORP_INFO, stats: latest_autumn_highsec_stats() }
                             }
                         }
                     }
