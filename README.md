@@ -1,4 +1,7 @@
-# Join Autumn
+# Autumn Homepage
+The homepage for EVE Online corporations [The Order of Autumn](https://zkillboard.com/corporation/98785281/) & [Autumn Highsec Division](https://zkillboard.com/corporation/98784256/), part of [Black Rose](https://black-rose.space/) alliance & Phoenix Coalition.
+
+This is a fullstack [Rust](https://www.rust-lang.org/) application built using [Dioxus v0.6.0-alpha.4](https://dioxuslabs.com/).
 
 ## Development
 
@@ -12,7 +15,7 @@ Enable rust-analyzer feature `"server"` for your code editor to include backend 
 - Install dioxus-cli `cargo install dioxus-cli@0.6.0-alpha.4`
 - Install sea-orm-cli `cargo install sea-orm-cli`
 - Install bun: <https://bun.sh/>
-- Install Daisyui with `bun i`
+- Install nodejs dependencies (DaisyUi) with `bun i`
 
 ### Run the Application
 

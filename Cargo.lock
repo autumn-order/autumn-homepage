@@ -333,6 +333,34 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ace50bade8e6234aa140d9a2f552bbee1db4d353f69b8217bc503490fc1a9f26"
 
 [[package]]
+name = "autumn-homepage"
+version = "0.1.0"
+dependencies = [
+ "axum",
+ "chrono",
+ "dioxus",
+ "dioxus-cli-config",
+ "dioxus-document",
+ "dioxus-free-icons",
+ "dioxus-logger",
+ "dotenv",
+ "entity",
+ "eve_esi",
+ "job_scheduler",
+ "log",
+ "manganis",
+ "migration",
+ "mockito",
+ "reqwest",
+ "sea-orm",
+ "serde",
+ "serde_json",
+ "thiserror 2.0.1",
+ "tokio",
+ "tokio-cron-scheduler",
+]
+
+[[package]]
 name = "axum"
 version = "0.7.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2273,34 +2301,6 @@ dependencies = [
  "chrono",
  "cron",
  "uuid 0.8.2",
-]
-
-[[package]]
-name = "join-autumn"
-version = "0.1.0"
-dependencies = [
- "axum",
- "chrono",
- "dioxus",
- "dioxus-cli-config",
- "dioxus-document",
- "dioxus-free-icons",
- "dioxus-logger",
- "dotenv",
- "entity",
- "eve_esi",
- "job_scheduler",
- "log",
- "manganis",
- "migration",
- "mockito",
- "reqwest",
- "sea-orm",
- "serde",
- "serde_json",
- "thiserror 2.0.1",
- "tokio",
- "tokio-cron-scheduler",
 ]
 
 [[package]]
