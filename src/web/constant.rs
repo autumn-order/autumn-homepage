@@ -64,5 +64,7 @@ pub const FAQ: &[FAQEntry] = &[
         question: "How does Autumn Highsec Division compare to The Order of Autumn?",
         answer: "Autumn Highsec Division is a lot more self-paced, you have access to our community and resources to grow and is intended to ultimately be a starting point before nullsec. The Order of Autumn is a lot more community driven as in nullsec space you must work together to keep your space secure & keep your market churning."
     }
-    
+
 ];
+
+pub static EVE_LEGAL_STATEMENT: &str = "EVE Online and the EVE logo are the registered trademarks of CCP hf. All rights are reserved worldwide. All other trademarks are the property of their respective owners. EVE Online, the EVE logo, EVE and all associated logos and designs are the intellectual property of CCP hf. All artwork, screenshots, characters, vehicles, storylines, world facts or other recognizable features of the intellectual property relating to these trademarks are likewise the intellectual property of CCP hf. CCP hf. has granted permission to Autumn to use EVE Online and all associated logos and designs for promotional and information purposes on its website but does not endorse, and is not in any way affiliated with, Autumn. CCP is in no way responsible for the content on or functioning of this website, nor can it be liable for any damage arising from the use of this website.";
