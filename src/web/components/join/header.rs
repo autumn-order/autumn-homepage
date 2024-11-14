@@ -2,15 +2,13 @@ use dioxus::prelude::*;
 use dioxus_free_icons::icons::fa_brands_icons::FaDiscord;
 use dioxus_free_icons::icons::fa_solid_icons::FaBars;
 use dioxus_free_icons::Icon;
-use manganis::ImageAsset;
+use manganis::Asset;
 
 use crate::web::constant::{APPLICATIONS_URL, DISCORD_URL};
 
 #[component]
 pub fn JoinHeader() -> Element {
-    const AUTUMN_LOGO: ImageAsset = manganis::mg!(image("./assets/autumn-logo-dark.png")
-        .format(ImageType::Avif)
-        .size(64, 64));
+    const AUTUMN_LOGO: Asset = manganis::asset!("./assets/autumn-logo-dark.png");
 
     rsx! {
         header { class: "fixed w-full flex justify-center bg-base-100 z-20",

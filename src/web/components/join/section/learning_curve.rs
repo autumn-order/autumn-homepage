@@ -3,14 +3,12 @@ use dioxus_free_icons::{
     icons::fa_solid_icons::{FaBook, FaGraduationCap, FaHandshake, FaTrafficLight},
     Icon,
 };
-use manganis::ImageAsset;
+use manganis::Asset;
 
 #[component]
 pub fn LearningCurve() -> Element {
-    const EVE_LEARNING_CURVE_IMAGE: ImageAsset =
-        manganis::mg!(image("./assets/images/join/the-great-curve.jpg")
-            .format(ImageType::Avif)
-            .size(647, 500));
+    const EVE_LEARNING_CURVE_IMAGE: Asset =
+        manganis::asset!("./assets/images/join/the-great-curve.jpg");
 
     rsx! {
         section { class: "flex items-center justify-center",

@@ -1,26 +1,14 @@
 use dioxus::prelude::*;
-use manganis::ImageAsset;
+use manganis::Asset;
 
 use crate::web::constant::FEATURED_VIDEO;
 
 #[component]
 pub fn Endgame() -> Element {
-    const FLEET_COMMANDER_IMAGE: ImageAsset =
-        manganis::mg!(image("./assets/images/join/monitor.png")
-            .format(ImageType::Avif)
-            .size(300, 200));
-    const CORPORATION_LEADER_IMAGE: ImageAsset =
-        manganis::mg!(image("./assets/images/join/azbel.png")
-            .format(ImageType::Avif)
-            .size(300, 200));
-    const INDUSTRIALIST_IMAGE: ImageAsset =
-        manganis::mg!(image("./assets/images/join/rorqual.png")
-            .format(ImageType::Avif)
-            .size(300, 200));
-    const SUPERCAPITAL_PILOT_IMAGE: ImageAsset =
-        manganis::mg!(image("./assets/images/join/avatar.png")
-            .format(ImageType::Avif)
-            .size(300, 200));
+    const FLEET_COMMANDER_IMAGE: Asset = manganis::asset!("./assets/images/join/monitor.png");
+    const CORPORATION_LEADER_IMAGE: Asset = manganis::asset!("./assets/images/join/azbel.png");
+    const INDUSTRIALIST_IMAGE: Asset = manganis::asset!("./assets/images/join/rorqual.png");
+    const SUPERCAPITAL_PILOT_IMAGE: Asset = manganis::asset!("./assets/images/join/avatar.png");
 
     rsx! {
         section { class: "flex items-center justify-center",

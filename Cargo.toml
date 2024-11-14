@@ -11,34 +11,54 @@ members = [".", "migration", "entity"]
 
 [dependencies]
 # Default
-dioxus = { version = "0.5.6", features = ["fullstack", "router"] }
+dioxus = { version = "0.6.0-alpha.4", features = ["fullstack", "router"] }
 dioxus-logger = "0.5.1"
-dioxus-helmet = { git = "https://github.com/dioxus-community/dioxus-helmet.git"  }
-dioxus-free-icons = { version = "0.8.6", features = ["font-awesome-brands", "font-awesome-solid"] }
-manganis = "0.2.2"
+dioxus-cli-config = { version = "0.6.0-alpha.4", optional = true }
+dioxus-free-icons = { git = "https://github.com/dioxus-community/dioxus-free-icons.git", branch = "feat/dioxus-0.6", features = [
+    "font-awesome-brands",
+    "font-awesome-solid",
+] }
+manganis = "0.6.0-alpha.4"
 
 serde = { version = "1.0.197", features = ["derive"] }
 chrono = { version = "0.4.38", features = ["serde"] }
 
 #Server
-migration = { path = "migration", optional = true  } 
-entity = { path = "entity", optional = true  } 
+migration = { path = "migration", optional = true }
+entity = { path = "entity", optional = true }
 
 eve_esi = { version = "0.2.4", optional = true }
 
 dotenv = { version = "0.15.0", optional = true }
 tokio = { version = "1.41.1", features = ["macros"], optional = true }
 reqwest = { version = "0.12.9", features = ["json"], optional = true }
-serde_json = {version = "1.0.132",  optional = true}
-thiserror = { version = "2.0.1", optional = true}
-mockito = {version = "1.5.0", optional = true }
-log = { version = "0.4.22", optional = true}
-sea-orm = { version = "1.1.1", optional =true}
+serde_json = { version = "1.0.132", optional = true }
+thiserror = { version = "2.0.1", optional = true }
+mockito = { version = "1.5.0", optional = true }
+log = { version = "0.4.22", optional = true }
+sea-orm = { version = "1.1.1", optional = true }
 job_scheduler = { version = "1.2.1", optional = true }
 tokio-cron-scheduler = { version = "0.13.0", optional = true }
 axum = { version = "0.7.7", optional = true }
 
 [features]
 default = []
-server = ["dioxus/axum", "migration" , "entity", "eve_esi", "dotenv", "tokio", "reqwest", "serde_json", "thiserror", "mockito", "log", "sea-orm", "job_scheduler", "tokio-cron-scheduler", "axum"]
+server = [
+    "dioxus/axum",
+    "migration",
+    "entity",
+    "eve_esi",
+    "dotenv",
+    "tokio",
+    "reqwest",
+    "serde_json",
+    "thiserror",
+    "mockito",
+    "log",
+    "sea-orm",
+    "job_scheduler",
+    "tokio-cron-scheduler",
+    "axum",
+    "dioxus-cli-config",
+]
 web = ["dioxus/web"]

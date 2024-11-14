@@ -10,7 +10,7 @@ For example if you are working on the API enable the `"server"` feature for rust
 ### Install Dependencies
 
 - Install Rust <https://rustup.rs/>
-- Install dioxus-cli `cargo install dioxus-cli`
+- Install dioxus-cli `cargo install dioxus-cli@0.6.0-alpha.4`
 - Install sea-orm-cli `cargo install sea-orm-cli`
 - Install bun: <https://bun.sh/>
 - Install Daisyui with `bun i`
@@ -29,7 +29,7 @@ bunx tailwindcss -i ./input.css -o ./assets/tailwind.css --watch
 Launch the Dioxus app:
 
 ```bash
-dx serve --platform fullstack
+dx serve
 ```
 
 ### Modifying Database Schema

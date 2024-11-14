@@ -1,15 +1,13 @@
 use dioxus::prelude::*;
 use dioxus_free_icons::icons::fa_brands_icons::{FaDiscord, FaGithub};
 use dioxus_free_icons::Icon;
-use manganis::ImageAsset;
+use manganis::Asset;
 
 use crate::web::constant::{DISCORD_URL, GITHUB_URL};
 
 #[component]
 pub fn Footer() -> Element {
-    const AUTUMN_LOGO: ImageAsset = manganis::mg!(image("assets/autumn-logo-dark.png")
-        .format(ImageType::Avif)
-        .size(128, 128));
+    const AUTUMN_LOGO: Asset = manganis::asset!("assets/autumn-logo-dark.png");
 
     rsx! {
         footer { class: "footer footer-center bg-base-200 text-base-content p-6 md:p-10 justify-center",

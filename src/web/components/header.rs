@@ -2,7 +2,6 @@ use dioxus::prelude::*;
 use dioxus_free_icons::icons::fa_brands_icons::FaGithub;
 use dioxus_free_icons::icons::{fa_brands_icons::FaDiscord, fa_solid_icons::FaBars};
 use dioxus_free_icons::Icon;
-use manganis::ImageAsset;
 
 use crate::web::constant::{DISCORD_URL, GITHUB_URL};
 
@@ -14,9 +13,7 @@ pub struct HeaderLink {
 
 #[component]
 pub fn Header() -> Element {
-    const AUTUMN_LOGO: ImageAsset = manganis::mg!(image("./assets/autumn-logo-dark.png")
-        .format(ImageType::Avif)
-        .size(64, 64));
+    const AUTUMN_LOGO: Asset = manganis::asset!("./assets/autumn-logo-dark.png");
 
     let links: Vec<HeaderLink> = vec![];
 

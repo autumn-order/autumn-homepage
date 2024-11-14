@@ -1,15 +1,13 @@
 use dioxus::prelude::*;
 use dioxus_free_icons::icons::{fa_brands_icons::FaDiscord, fa_solid_icons::FaChevronDown};
 use dioxus_free_icons::Icon;
-use manganis::ImageAsset;
+use manganis::Asset;
 
 use crate::web::constant::{APPLICATIONS_URL, DISCORD_URL};
 
 #[component]
 pub fn Hero() -> Element {
-    const AUTUMN_LOGO: ImageAsset = manganis::mg!(image("./assets/autumn-logo.png")
-        .format(ImageType::Avif)
-        .size(512, 512));
+    const AUTUMN_LOGO: Asset = manganis::asset!("./assets/autumn-logo.png");
 
     rsx! {
         section { class: "flex items-center justify-center bg-gradient-to-br from-orange-950 to-amber-800 h-screen pt-[88px] pb-6",

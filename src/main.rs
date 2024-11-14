@@ -40,24 +40,19 @@ fn main() {
 
                 sched.start().await.expect("Failed to start scheduler");
 
-                // This needs a .layer(Extension(db)) when it is determined how to access it from a Dioxus server function
-                let app = Router::new()
-                    .serve_dioxus_application(ServeConfig::builder().build(), || {
-                        VirtualDom::new(App)
-                    })
-                    .await
+                let router = Router::new()
+                    .serve_dioxus_application(ServeConfigBuilder::default(), App)
                     .layer(Extension(db));
 
-                let addr = std::net::SocketAddr::from(([127, 0, 0, 1], 8080));
-                let listener = tokio::net::TcpListener::bind(&addr).await.unwrap();
-
-                axum::serve(listener, app.into_make_service())
-                    .await
-                    .unwrap();
+                let router = router.into_make_service();
+                let address = dioxus_cli_config::fullstack_address_or_localhost();
+                let listener = tokio::net::TcpListener::bind(address).await.unwrap();
+                axum::serve(listener, router).await.unwrap();
             });
     }
 }
 
+#[component]
 fn App() -> Element {
     rsx! {
         Router::<Route> {}
