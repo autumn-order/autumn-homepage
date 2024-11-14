@@ -16,7 +16,6 @@ asset_dir = "assets"
 [web.app]
 
 # HTML title tag content
-title = "Join Autumn"
 
 [web.watcher]
 

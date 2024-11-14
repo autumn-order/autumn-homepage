@@ -10,25 +10,31 @@ edition = "2021"
 members = [".", "migration", "entity"]
 
 [dependencies]
-# Default
+# === Default ===
 dioxus = { version = "0.6.0-alpha.4", features = ["fullstack", "router"] }
 dioxus-logger = "0.5.1"
-dioxus-cli-config = { version = "0.6.0-alpha.4", optional = true }
+dioxus-document = { version = "0.6.0-alpha.4" }
 dioxus-free-icons = { git = "https://github.com/dioxus-community/dioxus-free-icons.git", branch = "feat/dioxus-0.6", features = [
     "font-awesome-brands",
     "font-awesome-solid",
 ] }
 manganis = "0.6.0-alpha.4"
 
+# 3rd Party crates
 serde = { version = "1.0.197", features = ["derive"] }
 chrono = { version = "0.4.38", features = ["serde"] }
 
-#Server
+# === Server ===
+dioxus-cli-config = { version = "0.6.0-alpha.4", optional = true }
+
+## Workspace
 migration = { path = "migration", optional = true }
 entity = { path = "entity", optional = true }
 
+## Autumn Crates
 eve_esi = { version = "0.2.4", optional = true }
 
+## 3rd Party Crates
 dotenv = { version = "0.15.0", optional = true }
 tokio = { version = "1.41.1", features = ["macros"], optional = true }
 reqwest = { version = "0.12.9", features = ["json"], optional = true }

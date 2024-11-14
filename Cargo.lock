@@ -2283,6 +2283,7 @@ dependencies = [
  "chrono",
  "dioxus",
  "dioxus-cli-config",
+ "dioxus-document",
  "dioxus-free-icons",
  "dioxus-logger",
  "dotenv",

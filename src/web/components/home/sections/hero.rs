@@ -33,7 +33,7 @@ pub fn Hero() -> Element {
                             " alliance & Phoenix Coalition"
                         }
                         p { class: "text-white text-xs md:text-base",
-                            "Autumn is a real life first, new player focused organization with a heavy emphasis on organization, community, and high quality IT infrastructure."
+                            "Autumn is a real life first, new player focused with a heavy emphasis on organization, community, and high quality IT infrastructure."
                         }
                     }
                     ul { class: "flex flex-wrap gap-2 justify-center",
