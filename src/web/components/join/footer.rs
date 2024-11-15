@@ -7,7 +7,7 @@ use crate::web::constant::{APPLICATIONS_URL, DISCORD_URL, EVE_LEGAL_STATEMENT};
 
 #[component]
 pub fn JoinFooter() -> Element {
-    const AUTUMN_LOGO: Asset = manganis::asset!("assets/autumn-logo-dark.png");
+    const AUTUMN_LOGO: Asset = manganis::asset!("/assets/autumn-logo-dark.png");
 
     rsx! {
         footer { class: "footer footer-center bg-base-200 text-base-content p-6 md:p-10 justify-center",

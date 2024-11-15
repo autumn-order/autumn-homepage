@@ -13,7 +13,7 @@ pub struct HeaderLink {
 
 #[component]
 pub fn Header() -> Element {
-    const AUTUMN_LOGO: Asset = manganis::asset!("./assets/autumn-logo-dark.png");
+    const AUTUMN_LOGO: Asset = asset!("/assets/autumn-logo-dark.png");
 
     let links: Vec<HeaderLink> = vec![];
 

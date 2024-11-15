@@ -15,18 +15,19 @@ Enable rust-analyzer feature `"server"` for your code editor to include backend 
 
 - Install Rust: <https://rustup.rs/>
 - Install bun: <https://bun.sh/>
-- Install dioxus-cli
+
+Install dioxus-cli
 
 ```bash
 cargo install dioxus-cli@0.6.0-alpha.4
 ```
-- Install sea-orm-cli
+Install sea-orm-cli
 
 ```bash
 cargo install sea-orm-cli
 ```
 
-- Install nodejs dependencies (DaisyUi) with
+Install nodejs dependencies (DaisyUi) with
 
 ```bash
 bun i

@@ -8,7 +8,7 @@ use crate::web::constant::{APPLICATIONS_URL, DISCORD_URL};
 
 #[component]
 pub fn JoinHeader() -> Element {
-    const AUTUMN_LOGO: Asset = manganis::asset!("./assets/autumn-logo-dark.png");
+    const AUTUMN_LOGO: Asset = manganis::asset!("/assets/autumn-logo-dark.png");
 
     rsx! {
         header { class: "fixed w-full flex justify-center bg-base-100 z-20",
