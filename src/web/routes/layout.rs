@@ -7,7 +7,7 @@ use crate::web::Route;
 // For now a RootLayout is used to direct the browser to the favicon
 #[component]
 pub fn RootLayout() -> Element {
-    const FAVICON: Asset = manganis::asset!("./assets/favicon.ico");
+    const FAVICON: Asset = manganis::asset!("/assets/favicon.ico");
 
     rsx! {
         Link {

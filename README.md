@@ -19,7 +19,7 @@ Enable rust-analyzer feature `"server"` for your code editor to include backend 
 Install dioxus-cli
 
 ```bash
-cargo install dioxus-cli@0.6.0-alpha.4
+cargo install dioxus-cli@0.6.0-alpha.5
 ```
 Install sea-orm-cli
 
