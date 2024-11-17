@@ -21,6 +21,49 @@ pub fn CallToAction() -> Element {
         stats: StatsDto,
     }
 
+    fn CorporationCard(props: CorporationCardProps) -> Element {
+        rsx!(
+            div { class: "card card-compact shadow h-96 min-w-64 max-w-72",
+                div { class: "card-body flex flex-col justify-between items-center text-center",
+                    img {
+                        class: "avatar w-24 h-24",
+                        src: format!(
+                            "https://images.evetech.net/corporations/{}/logo?size=128",
+                            props.corporation.corporation_id,
+                        ),
+                        alt: format!("{} Logo", props.corporation.name)
+                    }
+                    div { class: "flex flex-col gap-2",
+                        p { class: "font-bold", "{props.corporation.name}" }
+                        p { "{props.corporation.location}" }
+                    }
+                    ul { class: "flex justify-evenly w-full",
+                        li { class: "flex flex-col items-center gap-2 w-1/2",
+                            Icon { width: 24, height: 24, icon: FaUsers }
+                            p { "Members" }
+                            p { "{props.stats.member_count}" }
+                        }
+                    }
+                    a { href: APPLICATIONS_URL, class: "btn btn-primary",
+                        { props.corporation.cta_text }
+                    }
+                }
+            }
+        )
+    }
+
+    // Implement later when dioxus-charts supports Dioxus 0.6
+    fn _MemberChartSection() -> Element {
+        rsx!(
+            div { class: "w-full flex flex-col items-center xl:w-1/2",
+                h2 { class: "font-bold text-center text-xl md:text-2xl py-6",
+                    "Join Many Others in Taking that First Step"
+                }
+                div { class: "card card-compact h-64 sm:h-96 w-full max-w-[696px] shadow" }
+            }
+        )
+    }
+
     let mut loaded = use_signal(|| false);
 
     let mut stats = use_signal(Vec::<StatsDto>::new);
@@ -62,37 +105,6 @@ pub fn CallToAction() -> Element {
         }
     }
 
-    fn CorporationCard(props: CorporationCardProps) -> Element {
-        rsx!(
-            div { class: "card card-compact shadow h-96 min-w-64 max-w-72",
-                div { class: "card-body flex flex-col justify-between items-center text-center",
-                    img {
-                        class: "avatar w-24 h-24",
-                        src: format!(
-                            "https://images.evetech.net/corporations/{}/logo?size=128",
-                            props.corporation.corporation_id,
-                        ),
-                        alt: format!("{} Logo", props.corporation.name)
-                    }
-                    div { class: "flex flex-col gap-2",
-                        p { class: "font-bold", "{props.corporation.name}" }
-                        p { "{props.corporation.location}" }
-                    }
-                    ul { class: "flex justify-evenly w-full",
-                        li { class: "flex flex-col items-center gap-2 w-1/2",
-                            Icon { width: 24, height: 24, icon: FaUsers }
-                            p { "Members" }
-                            p { "{props.stats.member_count}" }
-                        }
-                    }
-                    a { href: APPLICATIONS_URL, class: "btn btn-primary",
-                        { props.corporation.cta_text }
-                    }
-                }
-            }
-        )
-    }
-
     rsx! {
         section { class: "flex items-center justify-center",
             div { class: "max-w-[1440px] p-6 w-full h-full flex flex-col items-center",
@@ -101,13 +113,7 @@ pub fn CallToAction() -> Element {
                         "Begin Your Journey as Early as Right Now"
                     }
                 }
-                div { class: "w-full py-6 flex flex-wrap gap-4 md:gap-0",
-                    div { class: "w-full flex flex-col items-center xl:w-1/2",
-                        h2 { class: "font-bold text-center text-xl md:text-2xl py-6",
-                            "Join Many Others in Taking that First Step"
-                        }
-                        div { class: "card card-compact h-64 sm:h-96 w-full max-w-[696px] shadow" }
-                    }
+                div { class: "w-full py-6 flex justify-center flex-wrap gap-4 md:gap-0",
                     div { class: "w-full xl:w-1/2",
                         h2 { class: "font-bold text-center text-xl md:text-2xl py-6",
                             "Join Autumn in Nullsec or Highsec"

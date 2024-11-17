@@ -85,7 +85,7 @@ pub fn LearningCurve() -> Element {
                                         span { "Play at Your Pace" }
                                     }
                                     p {
-                                        "Join us in either highsec or nullsec and remember that real life always comes first, this is a game after all. No mandatory fleet participation minimums, step away to take care of real life when needed and pick up where you left off whenever you're ready."
+                                        "Join us in either highsec or nullsec and remember that real life always comes first, this is a game after all. No mandatory fleet participation minimums, step away to take care of real life when needed and pick up where you left off when you're ready."
                                     }
                                 }
                             }
