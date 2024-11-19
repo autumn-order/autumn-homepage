@@ -3,6 +3,26 @@ The homepage for EVE Online corporations [The Order of Autumn](https://zkillboar
 
 This is a fullstack [Rust](https://www.rust-lang.org/) application built using [Dioxus v0.6.0-alpha.5](https://dioxuslabs.com/).
 
+## Production
+
+### Install Dependencies
+
+- Install docker: <https://www.docker.com/>
+
+### Run the Application
+
+This application is built using Rust which means it needs to compile before it runs. It is best practice to build the image on your own computer and pushing the finished image to the production server to not constrain resources for other applications running on the server during the build process.
+
+1. Copy `.env.example` to `.env` and set the `APPLICATION_EMAIL` variable to your contact email
+
+  This is only used when requests are made to ESI to pull corporation statistics displayed on the site.
+
+2. Run the application using
+
+```bash
+docker-compose up -d
+```
+
 ## Development
 
 Enable rust-analyzer feature `"server"` for your code editor to include backend code for your Rust lanaguage server:
@@ -10,8 +30,6 @@ Enable rust-analyzer feature `"server"` for your code editor to include backend 
 ```json
 "rust-analyzer.cargo.features": ["server"]
 ```
-
-
 
 ### Install Dependencies
 
