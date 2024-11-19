@@ -33,7 +33,7 @@ pub fn Hero() -> Element {
                             " alliance & Phoenix Coalition"
                         }
                         p { class: "text-white text-xs md:text-base",
-                            "Autumn is a real life first, new player focused with a heavy emphasis on organization, community, and high quality IT infrastructure."
+                            "Autumn is real life first & new player focused with a heavy emphasis on organization, community, and high quality IT infrastructure."
                         }
                     }
                     ul { class: "flex flex-wrap gap-2 justify-center",
@@ -46,7 +46,7 @@ pub fn Hero() -> Element {
                         li {
                             a {
                                 href: "/join",
-                                class: "btn px-2 md:px-4 btn-primary",
+                                class: "btn btn-primary px-2 md:px-4 btn",
                                 "Join Autumn"
                             }
                         }
