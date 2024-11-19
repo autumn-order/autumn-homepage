@@ -1,7 +1,7 @@
 # Autumn Homepage
 The homepage for EVE Online corporations [The Order of Autumn](https://zkillboard.com/corporation/98785281/) & [Autumn Highsec Division](https://zkillboard.com/corporation/98784256/), part of [Black Rose](https://black-rose.space/) alliance & Phoenix Coalition.
 
-This is a fullstack [Rust](https://www.rust-lang.org/) application built using [Dioxus v0.6.0-alpha.4](https://dioxuslabs.com/).
+This is a fullstack [Rust](https://www.rust-lang.org/) application built using [Dioxus v0.6.0-alpha.5](https://dioxuslabs.com/).
 
 ## Development
 
@@ -10,6 +10,8 @@ Enable rust-analyzer feature `"server"` for your code editor to include backend 
 ```json
 "rust-analyzer.cargo.features": ["server"]
 ```
+
+
 
 ### Install Dependencies
 
@@ -35,13 +37,14 @@ bun i
 
 ### Run the Application
 
-1. Run migrations with
+1. Copy `.env.example` to `.env` and set the `APPLICATION_EMAIL` variable to your contact email
+2. Run migrations with
 
 ```bash
 sea-orm-cli migrate
 ```
 
-2. Run the application using these commands in 2 separate terminals
+3. Run the application using these commands in 2 separate terminals
 
 ```bash
 bunx tailwindcss -i ./input.css -o ./assets/tailwind.css --watch
@@ -51,7 +54,7 @@ bunx tailwindcss -i ./input.css -o ./assets/tailwind.css --watch
 dx serve
 ```
 
-### Running Unit Tests
+### Running Tests
 
 ```bash
 cargo test --features server
