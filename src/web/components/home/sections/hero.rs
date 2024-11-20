@@ -27,7 +27,6 @@ pub fn Hero() -> Element {
                             a {
                                 class: "link",
                                 href: BLACK_ROSE_WEBSITE_URL,
-                                target: "_blank",
                                 "Black Rose"
                             }
                             " alliance & Phoenix Coalition"
@@ -47,7 +46,7 @@ pub fn Hero() -> Element {
                             a {
                                 href: "/join",
                                 class: "btn btn-primary px-2 md:px-4 btn",
-                                "Join Autumn"
+                                "Learn More"
                             }
                         }
                     }

@@ -158,7 +158,7 @@ pub fn CallToAction() -> Element {
                         h2 { class: "font-bold text-center text-xl md:text-2xl pb-6",
                             "Begin the Application Process"
                         }
-                        ul { class: "flex flex-col gap-2 px-10",
+                        ul { class: "flex flex-col gap-2 px-2 sm:px-10",
                             li {
                                 "1. Submit your application at "
                                 a {
