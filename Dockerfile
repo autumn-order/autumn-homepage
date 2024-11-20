@@ -11,8 +11,7 @@ RUN apk add musl-dev libressl-dev g++ \
     && rustup default nightly \
     && rustup component add rustfmt \
     && rustup target add wasm32-unknown-unknown \
-    && cargo install dioxus-cli@0.6.0-alpha.5 \
-    && cargo install wasm-opt@0.116.1
+    && cargo install dioxus-cli@0.6.0-alpha.5
 
 COPY Cargo.toml Cargo.lock entity migration ./
 
@@ -24,8 +23,7 @@ RUN cargo fetch
 COPY . .
 
 RUN cargo build --release --features server \
-    && dx build --release \
-    && wasm-opt /app/target/dx/${APP_NAME}/release/web/public/wasm/${APP_NAME}_bg.wasm -o /app/target/dx/${APP_NAME}/release/web/public/${APP_NAME}_bg.wasm -Oz
+    && dx build --release
 
 # === Generate Tailwindcss ===
 FROM node:23.2-alpine3.20 AS node_stage
