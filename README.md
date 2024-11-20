@@ -22,6 +22,8 @@ Running the Application
 docker-compose up -d
 ```
 
+For locally testing the docker-compose setup at `localhost:8080` ensure you uncomment the ports in the `docker-compose.yml` file.
+
 ### Manual
 
 - Install Rust: <https://rustup.rs/>
