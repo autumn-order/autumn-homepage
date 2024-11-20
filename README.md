@@ -137,4 +137,3 @@ sea-orm-cli migrate
 ```bash
 sea-orm-cli generate entity -o ./entity/src/entities/ --date-time-crate chrono
 ```
-
