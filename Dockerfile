@@ -7,9 +7,8 @@ ENV APP_NAME=${APP_NAME}
 WORKDIR /app
 
 ## Dependencies
-RUN apk add musl-dev libressl-dev g++ \
+RUN apk add --no-cache musl-dev libressl-dev \
     && rustup default nightly \
-    && rustup component add rustfmt \
     && rustup target add wasm32-unknown-unknown \
     && cargo install dioxus-cli@0.6.0-alpha.5
 
@@ -47,10 +46,12 @@ RUN npx tailwindcss -i ./input.css -o ./assets/tailwind.css \
     && npx lightningcss -m ./assets/tailwind.css -o ./assets/tailwind.css
 
 # === Run application ===
-FROM debian:bookworm-slim
+FROM alpine:3.20
 ARG APP_NAME
 ENV APP_NAME=${APP_NAME}
 WORKDIR /app
+
+RUN apk add --no-cache ca-certificates
 
 COPY --from=rust_stage /app/target/release/${APP_NAME} /app
 COPY --from=rust_stage /app/target/dx/${APP_NAME}/release/web/public /app/public

@@ -10,6 +10,8 @@ If you are constrained on server resources consider building the application on 
 
 ### Docker
 
+Docker is the recommended and easiest approach for running this application in production.
+
 - Install docker: <https://www.docker.com/>
 
 Running the Application
