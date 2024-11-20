@@ -1,11 +1,9 @@
 services:
   autumn-homepage:
-    build: .
+    image: hyziri/autumn-homepage
     restart: unless-stopped
     environment:
       - APPLICATION_EMAIL=${APPLICATION_EMAIL}
-    ports:
-      - "8080:8080"
     volumes:
       - autumn-homepage:/app/data
 
