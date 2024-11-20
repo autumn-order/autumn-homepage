@@ -1,11 +1,20 @@
 services:
   autumn-homepage:
-    build: . # use hyziri/autumn-homepage to pull the pre-built image from Docker Hub
+    build: .
     restart: unless-stopped
     environment:
-      - APPLICATION_EMAIL=${APPLICATION_EMAIL}
+      - APPLICATION_EMAIL=${APPLICATION_EMAIL} # e.g. example@example.com
+      - APPLICATION_URL=${APPLICATION_URL} # e.g. http://localhost:8080 or https://example.com
     volumes:
       - autumn-homepage:/app/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f ${APPLICATION_URL} || exit 1"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    # ports: # Uncomment for local testing at http://localhost:8080
+    # - "8080:8080"
 
 volumes:
   autumn-homepage:
