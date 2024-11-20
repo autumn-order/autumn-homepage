@@ -6,3 +6,8 @@ services:
       - APPLICATION_EMAIL=${APPLICATION_EMAIL}
     ports:
       - "8080:8080"
+    volumes:
+      - autumn-homepage:/app/data
+
+volumes:
+  autumn-homepage:

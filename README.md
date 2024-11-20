@@ -56,13 +56,7 @@ bun i
 ### Run the Application
 
 1. Copy `.env.example` to `.env` and set the `APPLICATION_EMAIL` variable to your contact email
-2. Run migrations with
-
-```bash
-sea-orm-cli migrate
-```
-
-3. Run the application using these commands in 2 separate terminals
+2. Run the application using these commands in 2 separate terminals
 
 ```bash
 bunx tailwindcss -i ./input.css -o ./assets/tailwind.css --watch
@@ -71,6 +65,8 @@ bunx tailwindcss -i ./input.css -o ./assets/tailwind.css --watch
 ```bash
 dx serve
 ```
+
+Migrations are ran automatically during startup, ensure the ./data directory exists or the application will not be able to create the sqlite database file.
 
 ### Running Tests
 

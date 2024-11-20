@@ -17,6 +17,7 @@ fn main() {
         use api::update::schedule_tasks;
         use axum::routing::*;
         use axum::Extension;
+        use migration::{Migrator, MigratorTrait};
         use sea_orm::Database;
         use tokio_cron_scheduler::JobScheduler;
 
@@ -31,6 +32,10 @@ fn main() {
                 let db = Database::connect(database_url)
                     .await
                     .expect("Failed to connect to the database");
+
+                Migrator::up(&db, None)
+                    .await
+                    .expect("Failed to run migrations");
 
                 let sched = JobScheduler::new()
                     .await
