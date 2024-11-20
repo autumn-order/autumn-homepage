@@ -51,7 +51,7 @@ ARG APP_NAME
 ENV APP_NAME=${APP_NAME}
 WORKDIR /app
 
-RUN apk add --no-cache ca-certificates
+RUN apk add --no-cache ca-certificates curl
 
 COPY --from=rust_stage /app/target/release/${APP_NAME} /app
 COPY --from=rust_stage /app/target/dx/${APP_NAME}/release/web/public /app/public

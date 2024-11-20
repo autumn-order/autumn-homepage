@@ -3,18 +3,19 @@ services:
     build: .
     restart: unless-stopped
     environment:
-      - APPLICATION_EMAIL=${APPLICATION_EMAIL} # e.g. example@example.com
-      - APPLICATION_URL=${APPLICATION_URL} # e.g. http://localhost:8080 or https://example.com
+      - APPLICATION_EMAIL=${APPLICATION_EMAIL}
     volumes:
       - autumn-homepage:/app/data
     healthcheck:
-      test: ["CMD-SHELL", "curl -f ${APPLICATION_URL} || exit 1"]
-      interval: 1m30s
+      test:
+        [
+          "CMD-SHELL",
+          "curl -f -H 'Accept: text/html' http://localhost:8080 || exit 1",
+        ]
+      interval: 1m
       timeout: 10s
       retries: 3
       start_period: 40s
-    # ports: # Uncomment for local testing at http://localhost:8080
-    # - "8080:8080"
 
 volumes:
   autumn-homepage:
