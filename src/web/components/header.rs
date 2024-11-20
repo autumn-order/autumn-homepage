@@ -61,26 +61,27 @@ pub fn Header() -> Element {
                             a {
                                 href: "/join",
                                 class: "btn px-2 md:px-4 btn-primary",
-                                "Join Autumn"
+                                "Learn More"
                             }
                         }
                     }
-                    if !links.is_empty() {
-                        div { class: "dropdown dropdown-end md:hidden",
-                            div {
-                                tabindex: 0,
-                                role: "button",
-                                class: "btn btn-square btn-ghost",
-                                Icon { width: 24, height: 24, icon: FaBars }
-                            }
-                            ul {
-                                tabindex: 0,
-                                class: "menu dropdown-content bg-base-100 w-52 rounded-b",
-                                for (key , value) in links.iter().enumerate() {
-                                    li { key: "{key}",
-                                        a { href: value.href, "{value.text}" }
-                                    }
+                    div { class: "dropdown dropdown-end md:hidden",
+                        div {
+                            tabindex: 0,
+                            role: "button",
+                            class: "btn btn-square btn-ghost",
+                            Icon { width: 24, height: 24, icon: FaBars }
+                        }
+                        ul {
+                            tabindex: 0,
+                            class: "menu dropdown-content bg-base-100 w-52 rounded-b",
+                            for (key , value) in links.iter().enumerate() {
+                                li { key: "{key}",
+                                    a { href: value.href, "{value.text}" }
                                 }
+                            }
+                            li {
+                                a { href: "/join", "Learn More" }
                             }
                         }
                     }

@@ -1,0 +1,1 @@
+db.sqlite will be placed here during runtime, ensure this directory exists otherwise the application will fail to run migrations and it will error.

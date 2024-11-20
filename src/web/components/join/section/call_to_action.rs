@@ -136,7 +136,7 @@ pub fn CallToAction() -> Element {
                         div { class: "flex flex-col gap-2",
                             h3 { class: "font-bold text-center text-lg", "Reach us Through Either" }
                             div { class: "flex justify-center",
-                                a { href: DISCORD_URL, class: "btn",
+                                a { href: DISCORD_URL, class: "btn btn-outline",
                                     Icon { width: 24, height: 24, fill: "black", icon: FaDiscord }
                                     "The Autumn Discord"
                                 }
@@ -158,7 +158,7 @@ pub fn CallToAction() -> Element {
                         h2 { class: "font-bold text-center text-xl md:text-2xl pb-6",
                             "Begin the Application Process"
                         }
-                        ul { class: "flex flex-col gap-2 px-10",
+                        ul { class: "flex flex-col gap-2 px-2 sm:px-10",
                             li {
                                 "1. Submit your application at "
                                 a {
@@ -188,9 +188,9 @@ pub fn CallToAction() -> Element {
                                     src: "https://images.evetech.net/characters/2114794365/portrait?size=128"
                                 }
                                 div { class: "flex flex-col justify-between",
-                                    p { class: "font-bold flex items-center", "CEO of Autumn" }
-                                    p { class: "font-bold flex items-center", "Hyziri" }
-                                    div { class: "flex items-center gap-1",
+                                    p { class: "font-bold flex items-center h-1/3", "CEO of Autumn" }
+                                    p { class: "font-bold flex items-center h-1/3", "Hyziri" }
+                                    div { class: "flex items-center gap-1 h-1/3",
                                         Icon { width: 20, height: 20, fill: "black", icon: FaDiscord }
                                         p { "hyziri" }
                                     }

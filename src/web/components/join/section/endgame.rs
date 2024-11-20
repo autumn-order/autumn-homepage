@@ -96,7 +96,7 @@ pub fn Endgame() -> Element {
                 }
                 div { class: "py-6",
                     h3 { class: "text-xl text-center",
-                        "No matter what your endgame is, Autumn's goal is to get you there."
+                        "No matter what your end game is, Autumn's goal is to get you there."
                     }
                 }
             }

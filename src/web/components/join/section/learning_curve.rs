@@ -70,7 +70,7 @@ pub fn LearningCurve() -> Element {
                                         span { "Information" }
                                     }
                                     p {
-                                        "Access to extensive resources to gain that foundational knowledge in your areas of EVE including a highly active Discord, an extensive wiki, and a knowledgeable community."
+                                        "Access to resources to gain that foundational knowledge in your areas of EVE including a highly active Discord, knowledgeable community, and a dedicated wiki."
                                     }
                                 }
                             }

@@ -37,12 +37,12 @@ pub const FAQ: &[FAQEntry] = &[
         answer: "Our primary focus is newer players & helping them grow, outside of that we focus on PvP with a mix of industry & PvE on the side.",
     },
     FAQEntry {
-        question: "What is Autumn's ultimate goal?",
-        answer: "Our ultimate goal is to make the new player experience in EVE more accessible and engaging. We also aim to build a tight knit community of like minded players who share in our dream of helping newer players grow.",
+        question: "What is Autumn's end goal?",
+        answer: "Our end goal is to make the new player experience in EVE more accessible and engaging. We also aim to build a tight knit community of like minded players who share in our goal of making EVE more accessible for those new to the game.",
     },
     FAQEntry {
         question: "Is PvP mandatory?",
-        answer: "While we have no monthly fleet participation minimums we do require nullsec member attendance for the occasional Call to Action fleets which involves a highly important strategic objective we needs all hands on deck to secure, this ONLY applies if you are online & in-game, don't lose sleep over CTAs, real life always comes first."
+        answer: "While we have no monthly fleet participation minimums, we do require nullsec member attendance for the occasional Call to Action fleets which involves a highly important strategic objective we needs all hands on deck to secure. This ONLY applies if you are online & in-game, don't lose sleep over CTAs, real life always comes first."
     },
     FAQEntry {
         question: "Where is Autumn located?",
@@ -54,7 +54,7 @@ pub const FAQ: &[FAQEntry] = &[
     },
     FAQEntry {
         question: "What are the requirements to join?",
-        answer: "To join you simply need to put an application in via this Website, you will also need to add your character to an application called SeAT which we use for background checks to mitigate the risk of spies. Our application process will walk you through how to do all of that."
+        answer: "To join you simply need to put an application by following one of the 'Begin Your Journey' buttons. You will also need to add your character to an application called SeAT which we use for background checks to mitigate the risk of spies. Our application process will walk you through how to do all of that."
     },
     FAQEntry {
         question: "Do I need a microphone to join?",

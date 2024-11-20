@@ -1,5 +1,5 @@
 use chrono::{Duration, Utc};
-use log::warn;
+use dioxus_logger::tracing::{info, warn};
 use sea_orm::{ColumnTrait, DatabaseConnection};
 
 use crate::api::data::stats::StatsRepository;
@@ -10,6 +10,8 @@ pub async fn update_corporation_stats(
     corporation_ids: &[i32],
 ) {
     let stats_repository = StatsRepository::new(db);
+
+    let mut updated_entry_count: i32 = 0;
 
     for corporation_id in corporation_ids {
         let filters = vec![entity::stats::Column::CorporationId.eq(*corporation_id)];
@@ -39,7 +41,7 @@ pub async fn update_corporation_stats(
             Ok(corporation) => corporation,
             Err(error) => {
                 warn!(
-                    "Failed to retrieve corporation {} from ESI: {}",
+                    "Failed to retrieve info for corporation {} from ESI: {}",
                     corporation_id, error
                 );
 
@@ -51,7 +53,7 @@ pub async fn update_corporation_stats(
             .create(*corporation_id, corporation.member_count)
             .await
         {
-            Ok(_) => (),
+            Ok(_) => updated_entry_count += 1,
             Err(error) => {
                 warn!(
                     "Failed to save corporation {} to database: {}",
@@ -61,5 +63,9 @@ pub async fn update_corporation_stats(
                 continue;
             }
         };
+    }
+
+    if updated_entry_count > 0 {
+        info!("Updated {} corporation stats entries.", updated_entry_count);
     }
 }

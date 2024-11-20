@@ -17,7 +17,9 @@ fn main() {
         use api::update::schedule_tasks;
         use axum::routing::*;
         use axum::Extension;
-        use sea_orm::Database;
+        use dioxus_logger::tracing::{info, Level};
+        use migration::{Migrator, MigratorTrait};
+        use sea_orm::{ConnectOptions, Database};
         use tokio_cron_scheduler::JobScheduler;
 
         dotenv::dotenv().ok();
@@ -28,13 +30,23 @@ fn main() {
                 let database_url =
                     std::env::var("DATABASE_URL").expect("DATABASE_URL is not set in .env");
 
-                let db = Database::connect(database_url)
+                let mut opt = ConnectOptions::new(database_url);
+                opt.sqlx_logging(false);
+
+                let db = Database::connect(opt)
                     .await
                     .expect("Failed to connect to the database");
+
+                Migrator::up(&db, None)
+                    .await
+                    .expect("Failed to run migrations");
 
                 let sched = JobScheduler::new()
                     .await
                     .expect("Failed to create JobScheduler");
+
+                dioxus_logger::init(Level::INFO).expect("failed to init logger");
+                info!("Starting server");
 
                 schedule_tasks(&sched, &db).await;
 
