@@ -6,20 +6,25 @@ ARG APP_NAME
 ENV APP_NAME=${APP_NAME}
 WORKDIR /app
 
-## Dependencies
+## Build Dependencies
 RUN apk add --no-cache musl-dev libressl-dev \
     && rustup default nightly \
     && rustup target add wasm32-unknown-unknown \
     && cargo install dioxus-cli@0.6.0-alpha.5
 
-COPY Cargo.toml Cargo.lock entity migration ./
+COPY Cargo.toml Cargo.lock ./
+COPY .cargo ./.cargo
+COPY entity ./entity
+COPY migration ./migration
 
-RUN cargo fetch
+RUN mkdir src && echo "fn main() {}" > src/main.rs \
+    && cargo build --release --features server \
+    && dx build --release
 
-## Compile Rust application
-# TODO: this needs to copy only files needed to compile the Rust application
-# See this issue: https://github.com/autumn-order/autumn-homepage/issues/3
-COPY . .
+## Build Rust application
+COPY Dioxus.toml ./
+COPY assets ./assets
+COPY src ./src
 
 RUN cargo build --release --features server \
     && dx build --release
@@ -30,7 +35,7 @@ ARG APP_NAME
 ENV APP_NAME=${APP_NAME}
 WORKDIR /app
 
-## Dependencies
+## Build Dependencies
 COPY package.json package-lock.json ./
 
 RUN npm i \
@@ -38,9 +43,8 @@ RUN npm i \
     && npm install --save-dev lightningcss-cli@1.28.1
 
 ## Generate & minify CSS
-# TODO: this needs to copy only files needed to generate tailwindcss
-# See this issue: https://github.com/autumn-order/autumn-homepage/issues/3
-COPY . .
+COPY tailwind.config.ts input.css ./
+COPY src ./src
 
 RUN npx tailwindcss -i ./input.css -o ./assets/tailwind.css \
     && npx lightningcss -m ./assets/tailwind.css -o ./assets/tailwind.css

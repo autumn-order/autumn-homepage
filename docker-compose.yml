@@ -16,8 +16,8 @@ services:
       timeout: 10s
       retries: 3
       start_period: 40s
-    # ports:  # uncomment for local testing
-    #  - "8080:8080"
+    ports: # uncomment for local testing
+      - "8080:8080"
 
 volumes:
   autumn-homepage:
