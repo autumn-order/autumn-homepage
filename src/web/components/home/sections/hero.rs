@@ -44,9 +44,9 @@ pub fn Hero() -> Element {
                         }
                         li {
                             a {
-                                href: "/join",
+                                href: "/join-autumn",
                                 class: "btn btn-primary px-2 md:px-4 btn",
-                                "Learn More"
+                                "Join Autumn"
                             }
                         }
                     }

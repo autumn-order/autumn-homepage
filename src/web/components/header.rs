@@ -59,9 +59,9 @@ pub fn Header() -> Element {
                         }
                         li {
                             a {
-                                href: "/join",
+                                href: "/join-autumn",
                                 class: "btn px-2 md:px-4 btn-primary",
-                                "Learn More"
+                                "Join Autumn"
                             }
                         }
                     }
@@ -81,7 +81,7 @@ pub fn Header() -> Element {
                                 }
                             }
                             li {
-                                a { href: "/join", "Learn More" }
+                                a { href: "/join-autumn", "Learn More" }
                             }
                         }
                     }

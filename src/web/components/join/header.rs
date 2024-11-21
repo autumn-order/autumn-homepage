@@ -17,7 +17,7 @@ pub fn JoinHeader() -> Element {
                     li {
                         a {
                             class: "btn btn-ghost flex gap-2 items-center font-bold text-2xl",
-                            href: "/join",
+                            href: "/join-autumn",
                             img {
                                 class: "w-12 h-12",
                                 alt: "Autumn Logo",

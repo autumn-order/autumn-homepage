@@ -40,7 +40,7 @@ pub fn Footer() -> Element {
                             }
                         }
                     }
-                    a { href: "/join", class: "btn px-2 md:px-4 btn-primary", "Join Autumn" }
+                    a { href: "/join-autumn", class: "btn px-2 md:px-4 btn-primary", "Join Autumn" }
                 }
             }
             p { class: "text-xs", {EVE_LEGAL_STATEMENT}}

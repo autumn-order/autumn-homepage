@@ -9,7 +9,7 @@ pub enum Route {
     #[layout(RootLayout)]
         #[route("/")]
         Home {},
-        #[route("/join")]
+        #[route("/join-autumn")]
         JoinAutumn {},
         #[route("/:..segments")]
         NotFound { segments: Vec<String> },
