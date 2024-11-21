@@ -185,7 +185,8 @@ pub fn CallToAction() -> Element {
                             div { class: "card-body flex-row gap-4",
                                 img {
                                     class: "avatar w-24 h-24 rounded-full",
-                                    src: "https://images.evetech.net/characters/2114794365/portrait?size=128"
+                                    src: "https://images.evetech.net/characters/2114794365/portrait?size=128",
+                                    alt: "Hyziri's portrait"
                                 }
                                 div { class: "flex flex-col justify-between",
                                     p { class: "font-bold flex items-center h-1/3", "CEO of Autumn" }

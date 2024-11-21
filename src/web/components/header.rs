@@ -41,19 +41,23 @@ pub fn Header() -> Element {
                 }
                 div {
                     ul { class: "hidden md:flex gap-2",
-                        ul { class: "flex",
-                            li {
-                                a {
-                                    class: "btn btn-square btn-ghost",
-                                    href: DISCORD_URL,
-                                    Icon { width: 24, height: 24, icon: FaDiscord }
+                        li {
+                            ul { class: "flex",
+                                li {
+                                    a {
+                                        class: "btn btn-square btn-ghost",
+                                        href: DISCORD_URL,
+                                        aria_label: "Discord",
+                                        Icon { width: 24, height: 24, icon: FaDiscord }
+                                    }
                                 }
-                            }
-                            li {
-                                a {
-                                    class: "btn btn-square btn-ghost",
-                                    href: GITHUB_URL,
-                                    Icon { width: 24, height: 24, icon: FaGithub }
+                                li {
+                                    a {
+                                        class: "btn btn-square btn-ghost",
+                                        href: GITHUB_URL,
+                                        aria_label: "GitHub",
+                                        Icon { width: 24, height: 24, icon: FaGithub }
+                                    }
                                 }
                             }
                         }
@@ -81,7 +85,7 @@ pub fn Header() -> Element {
                                 }
                             }
                             li {
-                                a { href: "/join-autumn", "Learn More" }
+                                a { href: "/join-autumn", "Join Autumn" }
                             }
                         }
                     }

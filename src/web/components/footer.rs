@@ -27,15 +27,17 @@ pub fn Footer() -> Element {
                     ul { class: "flex list-none",
                         li {
                             a {
+                                class: "btn btn-square btn-ghost",
                                 href: DISCORD_URL,
-                                class: "btn btn-ghost btn-square",
+                                aria_label: "Discord",
                                 Icon { width: 24, height: 24, icon: FaDiscord }
                             }
                         }
                         li {
                             a {
+                                class: "btn btn-square btn-ghost",
                                 href: GITHUB_URL,
-                                class: "btn btn-ghost btn-square",
+                                aria_label: "GitHub",
                                 Icon { width: 24, height: 24, icon: FaGithub }
                             }
                         }
