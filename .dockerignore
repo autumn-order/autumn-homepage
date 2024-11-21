@@ -1,6 +1,8 @@
 # will have compiled files and executables
 target
 dist
+static
+.dioxus
 
 # this file will generate by tailwind:
 assets/tailwind.css
@@ -14,11 +16,3 @@ node_modules
 # Autumn
 db.sqlite
 .env
-
-# Not necessary for docker builds, prevent rebuild when these are modified
-README.md
-Dockerfile
-docker-compose.yml
-tests
-.github
-.env.example
