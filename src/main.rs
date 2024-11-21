@@ -6,7 +6,7 @@ mod web;
 
 use dioxus::prelude::*;
 
-use web::Route;
+use web::App;
 
 fn main() {
     #[cfg(feature = "web")]
@@ -61,12 +61,5 @@ fn main() {
                 let listener = tokio::net::TcpListener::bind(address).await.unwrap();
                 axum::serve(listener, router).await.unwrap();
             });
-    }
-}
-
-#[component]
-fn App() -> Element {
-    rsx! {
-        Router::<Route> {}
     }
 }

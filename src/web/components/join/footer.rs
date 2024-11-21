@@ -13,7 +13,7 @@ pub fn JoinFooter() -> Element {
         footer { class: "footer footer-center bg-base-200 text-base-content p-6 md:p-10 justify-center",
             div { class: "max-w-[1440px] w-full",
                 aside { class: "flex flex-col items-center",
-                    a { href: "/join", class: "flex flex-col items-center",
+                    a { href: "/join-autumn", class: "flex flex-col items-center",
                         img {
                             class: "w-32 h-32",
                             alt: "Autumn Logo",
