@@ -87,9 +87,9 @@ async fn test_update_corporation_stats() {
         .with_body(r#"{"error": "Corporation not found"}"#)
         .create();
 
-    let application_email =
-        std::env::var("APPLICATION_EMAIL").expect("APPLICATION_EMAIL is not set in .env");
-    let user_agent = format!("{} ({})", APP_VERSION_INFO, application_email);
+    let esi_contact_email =
+        std::env::var("ESI_CONTACT_EMAIL").expect("ESI_CONTACT_EMAIL is not set in .env");
+    let user_agent = format!("{} ({})", APP_VERSION_INFO, esi_contact_email);
 
     let mut esi_client = eve_esi::Client::new(&user_agent);
 
