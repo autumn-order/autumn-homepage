@@ -7,10 +7,10 @@ const fn get_autumn_corporation_ids() -> &'static [i32] {
 }
 
 pub async fn task_update_corporation_stats(db: &DatabaseConnection) {
-    let application_email =
-        std::env::var("APPLICATION_EMAIL").expect("APPLICATION_EMAIL is not set in .env");
+    let esi_contact_email =
+        std::env::var("ESI_CONTACT_EMAIL").expect("ESI_CONTACT_EMAIL is not set in .env");
 
-    let user_agent = format!("{} ({})", APP_VERSION_INFO, application_email);
+    let user_agent = format!("{} ({})", APP_VERSION_INFO, esi_contact_email);
     let esi_client = eve_esi::Client::new(&user_agent);
 
     const CORPORATION_IDS: &[i32] = get_autumn_corporation_ids();
