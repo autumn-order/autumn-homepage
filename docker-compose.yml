@@ -3,7 +3,7 @@ services:
     build: .
     restart: unless-stopped
     environment:
-      - APPLICATION_EMAIL=${APPLICATION_EMAIL}
+      - ESI_CONTACT_EMAIL=${ESI_CONTACT_EMAIL}
     volumes:
       - autumn-homepage:/app/data
     healthcheck:
