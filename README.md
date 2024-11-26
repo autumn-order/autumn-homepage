@@ -1,4 +1,5 @@
-![Autumn Banner](https://raw.githubusercontent.com/autumn-order/branding/refs/heads/main/autumn-github-banner.png)
+![Autumn Banner](https://raw.githubusercontent.com/autumn-order/branding/refs/heads/main/autumn-github-banner-dark.png#gh-light-mode-only)
+![Autumn Banner](https://raw.githubusercontent.com/autumn-order/branding/refs/heads/main/autumn-github-banner-light.png#gh-dark-mode-only)
 
 # Autumn Homepage
 The homepage for EVE Online corporations [The Order of Autumn](https://zkillboard.com/corporation/98785281/) & [Autumn Highsec Division](https://zkillboard.com/corporation/98784256/), part of [Black Rose](https://black-rose.space/) alliance & Phoenix Coalition.
