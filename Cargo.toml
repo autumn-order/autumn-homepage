@@ -14,7 +14,8 @@ members = [".", "migration", "entity"]
 dioxus = { version = "0.6.0-alpha.5", features = ["fullstack", "router"] }
 dioxus-logger = "0.5.1"
 dioxus-document = { version = "0.6.0-alpha.5" }
-dioxus-free-icons = { git = "https://github.com/dioxus-community/dioxus-free-icons.git", branch = "feat/dioxus-0.6", features = [
+# Using fork until pull request https://github.com/dioxus-community/dioxus-free-icons/pull/61 is merged for Bluesky icon
+dioxus-free-icons = { git = "https://github.com/hyziri/dioxus-free-icons.git", branch = "feat/dioxus-0.6", features = [
     "font-awesome-brands",
     "font-awesome-solid",
 ] }

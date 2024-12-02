@@ -11,10 +11,22 @@ pub struct FAQEntry {
     pub answer: &'static str,
 }
 
+// Social Media URLs
 pub const DISCORD_URL: &str = "https://discord.gg/WvA8Vb9C7D";
+pub const YOUTUBE_URL: &str = "https://www.youtube.com/@autumn-order";
+pub const TWITCH_URL: &str = "https://www.twitch.tv/autumnorder";
+pub const BLUESKY_URL: &str = "https://bsky.app/profile/autumn-order.com";
+pub const REDDIT_URL: &str = "https://www.reddit.com/r/autumnorder";
 pub const GITHUB_URL: &str = "https://github.com/autumn-order";
+pub const SOUNDCLOUD_URL: &str = "https://soundcloud.com/autumn-order";
+
+// Websites
+
 pub const BLACK_ROSE_WEBSITE_URL: &str = "https://black-rose.space";
 pub const APPLICATIONS_URL: &str = "https://apply.autumn-order.com";
+
+// Join Page Video
+
 pub const FEATURED_VIDEO: &str = "https://www.youtube.com/embed/AdfFnTt2UT0?si=x3rGt9pHRJHZ9g8i";
 
 pub const AUTUMN_ORDER_CORP_INFO: CorpCardData = CorpCardData {
