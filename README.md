@@ -85,6 +85,37 @@ Enable rust-analyzer feature `"server"` for your code editor to include backend 
 "rust-analyzer.cargo.features": ["server"]
 ```
 
+The analytics tag implementation by using a custom index.html in main.rs interferes with hot reloading. You'll want to remove it during development and re-add it before pushing changes.
+A better solution will need to be implemented eventually.
+
+```
+.serve_dioxus_application(
+    ServeConfigBuilder::new().index_html(
+        r#"
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>Autumn</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="stylesheet" href="/assets/tailwind.css" />
+                <script defer src="https://analytics.autumn-order.com/script.js" data-website-id="ce8c52d1-65eb-4493-952f-2732eae3f11b"></script>
+            </head>
+            <body>
+                <div id="main"></div>
+            </body>
+            </html>
+        "#.into(),
+    ),
+    App,
+)
+```
+
+Change to for development
+
+```
+                    .serve_dioxus_application(ServeConfigBuilder::default(), App)
+```
+
 ### Install Dependencies
 
 - Install Rust: <https://rustup.rs/>
