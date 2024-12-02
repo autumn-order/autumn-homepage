@@ -26,7 +26,7 @@ pub fn Header() -> Element {
     ];
 
     rsx! {
-        header { class: "fixed w-full flex justify-center bg-base-100 z-20",
+        header { class: "fixed w-full flex justify-center bg-base-100 z-20 border-b border-base-200",
             div { class: "max-w-[1440px] w-full flex items-center justify-between px-6 py-3",
                 a {
                     class: "btn btn-ghost flex gap-2 items-center font-bold text-2xl",

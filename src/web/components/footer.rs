@@ -76,7 +76,7 @@ pub fn Footer() -> Element {
                     }
                 }
             }
-            footer { class: "footer text-base-content px-4 pt-8 max-w-[1440px] w-full",
+            footer { class: "footer text-base-content px-4 pt-12 max-w-[1440px] w-full",
                 ul { class: "flex flex-wrap gap-4",
                     li {
                         a { href: DISCORD_URL, class: "footer-media-link hover:bg-[#5865F2]",
