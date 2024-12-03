@@ -5,7 +5,7 @@ use dioxus_document::{Link, Meta};
 #[component]
 pub fn App() -> Element {
     const FAVICON: Asset = manganis::asset!("/assets/favicon.ico");
-    const AUTUMN_LOGO: Asset = manganis::asset!("/assets/autumn-logo.png");
+    const AUTUMN_LOGO: Asset = manganis::asset!("/assets/autumn-logo.avif");
 
     rsx! {
         Link {
