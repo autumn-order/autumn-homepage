@@ -12,7 +12,15 @@ pub struct HeaderLink {
 
 #[component]
 pub fn Header() -> Element {
-    const AUTUMN_LOGO: Asset = asset!("/assets/autumn-logo-dark.avif");
+    const AUTUMN_LOGO: Asset = asset!(
+        "/assets/autumn-logo-dark.avif",
+        ImageAssetOptions::new()
+            .with_avif()
+            .with_size(ImageSize::Manual {
+                width: 48,
+                height: 48
+            })
+    );
 
     let links: Vec<HeaderLink> = vec![
         HeaderLink {

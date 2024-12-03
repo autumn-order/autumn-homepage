@@ -21,7 +21,15 @@ pub struct FooterLink {
 
 #[component]
 pub fn Footer() -> Element {
-    const AUTUMN_LOGO: Asset = asset!("/assets/autumn-logo-dark.avif");
+    const AUTUMN_LOGO: Asset = asset!(
+        "/assets/autumn-logo-dark.avif",
+        ImageAssetOptions::new()
+            .with_avif()
+            .with_size(ImageSize::Manual {
+                width: 48,
+                height: 48
+            })
+    );
 
     let footer_sections: Vec<FooterSection> = vec![
         FooterSection {

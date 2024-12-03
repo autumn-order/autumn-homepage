@@ -8,7 +8,15 @@ use crate::web::constant::{APPLICATIONS_URL, DISCORD_URL};
 
 #[component]
 pub fn JoinHeader() -> Element {
-    const AUTUMN_LOGO: Asset = manganis::asset!("/assets/autumn-logo-dark.avif");
+    const AUTUMN_LOGO: Asset = manganis::asset!(
+        "/assets/autumn-logo-dark.avif",
+        ImageAssetOptions::new()
+            .with_avif()
+            .with_size(ImageSize::Manual {
+                width: 48,
+                height: 48
+            })
+    );
 
     rsx! {
         header { class: "fixed w-full flex justify-center bg-base-100 z-20 border-b border-base-200",

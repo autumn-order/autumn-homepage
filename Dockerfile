@@ -10,7 +10,7 @@ WORKDIR /app
 RUN apk add --no-cache musl-dev libressl-dev \
     && rustup default nightly \
     && rustup target add wasm32-unknown-unknown \
-    && cargo install dioxus-cli@0.6.0-alpha.5
+    && cargo install dioxus-cli@0.6.0-rc.0
 
 COPY Cargo.toml Cargo.lock ./
 COPY .cargo ./.cargo
@@ -39,15 +39,13 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 
 RUN npm i \
-    && npm install -g tailwindcss@3.4.15 \
-    && npm install --save-dev lightningcss-cli@1.28.1
+    && npm install -g tailwindcss@3.4.15
 
 ## Generate & minify CSS
 COPY tailwind.config.ts input.css ./
 COPY src ./src
 
-RUN npx tailwindcss -i ./input.css -o ./assets/tailwind.css \
-    && npx lightningcss -m ./assets/tailwind.css -o ./assets/tailwind.css
+RUN npx tailwindcss -i ./input.css -o ./assets/tailwind.css
 
 # === Run application ===
 FROM alpine:3.20

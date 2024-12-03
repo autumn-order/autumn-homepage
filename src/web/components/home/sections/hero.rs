@@ -7,7 +7,15 @@ use crate::web::constant::{BLACK_ROSE_WEBSITE_URL, DISCORD_URL};
 
 #[component]
 pub fn Hero() -> Element {
-    const AUTUMN_LOGO: Asset = manganis::asset!("/assets/autumn-logo.avif");
+    const AUTUMN_LOGO: Asset = manganis::asset!(
+        "/assets/autumn-logo.avif",
+        ImageAssetOptions::new()
+            .with_avif()
+            .with_size(ImageSize::Manual {
+                width: 256,
+                height: 256
+            })
+    );
 
     rsx! {
         section { class: "flex items-center justify-center bg-gradient-to-br from-orange-950 to-amber-800 h-screen pt-[88px] pb-6",

@@ -11,22 +11,22 @@ members = [".", "migration", "entity"]
 
 [dependencies]
 # === Default ===
-dioxus = { version = "0.6.0-alpha.5", features = ["fullstack", "router"] }
+dioxus = { version = "0.6.0-rc.0", features = ["fullstack", "router"] }
 dioxus-logger = "0.5.1"
-dioxus-document = { version = "0.6.0-alpha.5" }
+dioxus-document = { version = "0.6.0-rc.0" }
 # Using fork until pull request https://github.com/dioxus-community/dioxus-free-icons/pull/61 is merged for Bluesky icon
 dioxus-free-icons = { git = "https://github.com/hyziri/dioxus-free-icons.git", branch = "feat/dioxus-0.6", features = [
     "font-awesome-brands",
     "font-awesome-solid",
 ] }
-manganis = "0.6.0-alpha.5"
+manganis = "0.6.0-rc.0"
 
 # 3rd Party crates
 serde = { version = "1.0.197", features = ["derive"] }
 chrono = { version = "0.4.38", features = ["serde"] }
 
 # === Server ===
-dioxus-cli-config = { version = "0.6.0-alpha.5", optional = true }
+dioxus-cli-config = { version = "0.6.0-rc.0", optional = true }
 
 ## Workspace
 migration = { path = "migration", optional = true }

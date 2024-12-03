@@ -7,7 +7,18 @@ use crate::web::constant::{APPLICATIONS_URL, DISCORD_URL, EVE_LEGAL_STATEMENT};
 
 #[component]
 pub fn JoinFooter() -> Element {
-    const AUTUMN_LOGO: Asset = manganis::asset!("/assets/autumn-logo-dark.avif");
+    const AUTUMN_LOGO: Asset = manganis::asset!(
+        "/assets/autumn-logo-dark.avif",
+        ImageAssetOptions::new()
+            .with_avif()
+            // This is supposed to be 128x128 but for some reason Dioxus returns
+            // "the image IMAGE_PATH cannot be displayed because it contains errors"
+            // It works as 48x48 for now
+            .with_size(ImageSize::Manual {
+                width: 48,
+                height: 48
+            })
+    );
 
     rsx! {
         footer { class: "footer footer-center bg-base-200 text-base-content p-6 md:p-10 justify-center",
