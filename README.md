@@ -1,172 +1,25 @@
 # Autumn Homepage
 The homepage for EVE Online corporations [The Order of Autumn](https://zkillboard.com/corporation/98785281/) & [Autumn Highsec Division](https://zkillboard.com/corporation/98784256/), part of [Black Rose](https://black-rose.space/) alliance & Phoenix Coalition.
 
-This is a fullstack [Rust](https://www.rust-lang.org/) application built using [Dioxus v0.6.0-alpha.5](https://dioxuslabs.com/).
+This is a fullstack [Rust](https://www.rust-lang.org/) application built using [Dioxus](https://dioxuslabs.com/).
+
+For contributions & development instructions please see [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## Running in Production
 
 Ensure your server has plenty of resources to build the application, since it is written in Rust the application will need to compile first.
-If you are constrained on server resources consider building the application on your local computer first and then pushing the built application/docker image to the server.
+If you are constrained on server resources consider building the application on your local computer first and then pushing the built docker image to the server.
 
 ### Docker
 
 Docker is the recommended and easiest approach for running this application in production.
 
-- Install docker: <https://www.docker.com/>
+- Install docker for your respective operating system: <https://docs.docker.com/engine/install/>
 
 Running the Application
-1. Copy `.env.example` to `.env` and set the `APPLICATION_EMAIL` variable to your contact email for [ESI](https://esi.evetech.net/) requests.
+1. Copy `.env.example` to `.env` and set the `ESI_CONTACT_EMAIL` variable to your contact email for [ESI](https://esi.evetech.net/) requests.
 2. Run the application using
 
 ```bash
 docker-compose up -d
-```
-
-For locally testing the docker-compose setup at `localhost:8080` ensure you uncomment the ports in the `docker-compose.yml` file.
-
-### Manual
-
-- Install Rust: <https://rustup.rs/>
-- Install nodejs: <https://nodejs.org/en>
-
-Install dioxus-cli
-
-```bash
-cargo install dioxus-cli@0.6.0-alpha.5
-```
-
-Install nodejs dependencies (DaisyUi) with
-
-```bash
-npm i
-```
-
-1. Copy `.env.example` to `.env` and set the `APPLICATION_EMAIL` variable to your contact email for [ESI](https://esi.evetech.net/) requests.
-2. Generate tailwindcss
-
-```bash
-npx tailwindcss -i ./input.css -o ./assets/tailwind.css
-```
-
-3. Build the web assets and then the backend server
-
-```bash
-dx build --release
-```
-
-```bash
-cargo build --features server --release
-```
-
-4. Move the compiled application to a location for running it such as `/var/www/autumn-homepage`
-
-```bash
-mkdir -p /var/www/autumn-homepage/data
-cp .env /var/www/autumn-homepage/.env
-cp ./target/dx/autumn-homepage/release/web/public /var/www/autumn-homepage/public
-cp ./target/release/autumn-homepage /var/www/autumn-homepage/autumn-homepage
-```
-
-5. Run the application
-
-```bash
-/var/www/autumn-homepage/autumn-homepage
-```
-
-You will need to configure systemd to automatically start the application whenever the server restarts.
-
-Additionally you may need to setup a reverse proxy such as [nginx](https://nginx.org/en/), [traefik](https://traefik.io/), or [river](https://github.com/memorysafety/river) if you are running multiple websites on the same server.
-
-## Running in Development
-
-Enable rust-analyzer feature `"server"` for your code editor to include backend code for your Rust lanaguage server:
-
-```json
-"rust-analyzer.cargo.features": ["server"]
-```
-
-The analytics tag implementation by using a custom index.html in main.rs interferes with hot reloading. You'll want to remove it during development and re-add it before pushing changes.
-A better solution will need to be implemented eventually.
-
-```
-.serve_dioxus_application(
-    ServeConfigBuilder::new().index_html(
-        r#"
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <title>Autumn</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <link rel="stylesheet" href="/assets/tailwind.css" />
-                <script defer src="https://analytics.autumn-order.com/script.js" data-website-id="ce8c52d1-65eb-4493-952f-2732eae3f11b"></script>
-            </head>
-            <body>
-                <div id="main"></div>
-            </body>
-            </html>
-        "#.into(),
-    ),
-    App,
-)
-```
-
-Change to for development
-
-```
-                    .serve_dioxus_application(ServeConfigBuilder::default(), App)
-```
-
-### Install Dependencies
-
-- Install Rust: <https://rustup.rs/>
-- Install nodejs: <https://nodejs.org/en>
-
-Install dioxus-cli
-
-```bash
-cargo install dioxus-cli@0.6.0-alpha.5
-```
-Install sea-orm-cli
-
-```bash
-cargo install sea-orm-cli
-```
-
-Install nodejs dependencies (DaisyUi) with
-
-```bash
-npm i
-```
-
-### Run the Application
-
-1. Copy `.env.example` to `.env` and set the `APPLICATION_EMAIL` variable to your contact email
-2. Run the application using these commands in 2 separate terminals
-
-```bash
-npx tailwindcss -i ./input.css -o ./assets/tailwind.css --watch
-```
-
-```bash
-dx serve
-```
-
-Migrations are ran automatically during startup, ensure the ./data directory exists or the application will not be able to create the sqlite database file.
-
-### Running Tests
-
-```bash
-cargo test --features server
-```
-
-### Modifying Database Schema
-
-After modifying the database schema run these commands in order
-
-```bash
-sea-orm-cli migrate
-```
-
-```bash
-sea-orm-cli generate entity -o ./entity/src/entities/ --date-time-crate chrono
 ```
