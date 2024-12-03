@@ -59,6 +59,7 @@ RUN apk add --no-cache ca-certificates curl
 
 COPY --from=rust_stage /app/target/release/${APP_NAME} /app
 COPY --from=rust_stage /app/target/dx/${APP_NAME}/release/web/public /app/public
+COPY --from=rust_stage /app/src/index.html /app/public/index.html
 COPY --from=node_stage /app/assets/tailwind.css /app/public/assets/tailwind.css
 
 ENV IP="0.0.0.0"

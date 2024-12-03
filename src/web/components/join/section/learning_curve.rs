@@ -8,7 +8,7 @@ use manganis::Asset;
 #[component]
 pub fn LearningCurve() -> Element {
     const EVE_LEARNING_CURVE_IMAGE: Asset =
-        manganis::asset!("/assets/images/join/the-great-curve.jpg");
+        manganis::asset!("/assets/images/join/the-great-curve.avif");
 
     rsx! {
         section { class: "flex items-center justify-center",

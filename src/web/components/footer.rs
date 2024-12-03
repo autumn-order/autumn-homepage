@@ -21,7 +21,7 @@ pub struct FooterLink {
 
 #[component]
 pub fn Footer() -> Element {
-    const AUTUMN_LOGO: Asset = asset!("/assets/autumn-logo-dark.png");
+    const AUTUMN_LOGO: Asset = asset!("/assets/autumn-logo-dark.avif");
 
     let footer_sections: Vec<FooterSection> = vec![
         FooterSection {

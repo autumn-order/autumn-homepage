@@ -5,10 +5,10 @@ use crate::web::constant::FEATURED_VIDEO;
 
 #[component]
 pub fn Endgame() -> Element {
-    const FLEET_COMMANDER_IMAGE: Asset = manganis::asset!("/assets/images/join/monitor.png");
-    const CORPORATION_LEADER_IMAGE: Asset = manganis::asset!("/assets/images/join/azbel.png");
-    const INDUSTRIALIST_IMAGE: Asset = manganis::asset!("/assets/images/join/rorqual.png");
-    const SUPERCAPITAL_PILOT_IMAGE: Asset = manganis::asset!("/assets/images/join/avatar.png");
+    const FLEET_COMMANDER_IMAGE: Asset = manganis::asset!("/assets/images/join/monitor.avif");
+    const CORPORATION_LEADER_IMAGE: Asset = manganis::asset!("/assets/images/join/azbel.avif");
+    const INDUSTRIALIST_IMAGE: Asset = manganis::asset!("/assets/images/join/rorqual.avif");
+    const SUPERCAPITAL_PILOT_IMAGE: Asset = manganis::asset!("/assets/images/join/avatar.avif");
 
     rsx! {
         section { class: "flex items-center justify-center",
